@@ -35,22 +35,6 @@ function SupportIcon() {
   );
 }
 
-function MenuIcon() {
-  return (
-    <svg
-      className="h-4 w-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      aria-hidden="true"
-    >
-      <path d="M5 8h14M5 16h14" />
-    </svg>
-  );
-}
-
 function DesktopModeSwitcher({
   active,
   t,
@@ -60,7 +44,7 @@ function DesktopModeSwitcher({
 }) {
   return (
     <div
-      className="hidden h-[22px] items-center rounded-full bg-gray-100 p-px sm:flex"
+      className="hidden h-8 items-center rounded-full bg-gray-100 p-0.5 sm:flex"
       aria-label={t("Zobrazení webu")}
     >
       {MODES.map((mode) => (
@@ -68,7 +52,7 @@ function DesktopModeSwitcher({
           key={mode.id}
           href={mode.href}
           aria-current={active === mode.id ? "page" : undefined}
-          className={`flex h-5 items-center whitespace-nowrap rounded-full px-[9px] text-[8px] font-medium leading-none transition ${active === mode.id ? "bg-white text-primary-700 shadow-sm" : "text-gray-500 hover:text-primary-700"}`}
+          className={`flex h-7 items-center whitespace-nowrap rounded-full px-3 text-[10px] font-medium leading-none transition ${active === mode.id ? "bg-white text-primary-700 shadow-sm" : "text-gray-500 hover:text-primary-700"}`}
         >
           {t(mode.label)}
         </Link>
@@ -113,29 +97,14 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const t = (value: string) => translate(locale, value);
   const onHome = active === "home";
-  const homePrefix = onHome ? "" : "/";
-  const navBase =
-    "flex h-full items-center border-b pt-px text-xs leading-none tracking-[0.005em] transition hover:text-primary-700";
-  const navIdle = `${navBase} border-transparent font-normal text-gray-500`;
-  const navSelected = `${navBase} border-primary-700 font-medium text-primary-700`;
-
-  const navLinks = [
-    { label: "Domů", href: `${homePrefix}#home`, selected: onHome },
-    { label: "Akce", href: `${homePrefix}#events`, selected: false },
-    {
-      label: "Jak to funguje",
-      href: `${homePrefix}#how-it-works`,
-      selected: false,
-    },
-  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/95 backdrop-blur-md">
       <nav
-        className="container-fluid flex h-16 items-center justify-between gap-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-7"
+        className="container-fluid flex h-16 items-center justify-between gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:gap-5"
         aria-label={t("Hlavní navigace")}
       >
-        <div className="flex min-w-0 shrink-0 items-center gap-5 lg:justify-self-start lg:gap-6">
+        <div className="flex min-w-0 shrink-0 items-center sm:justify-self-start">
           <Link href="/" aria-label="NFCtron domů" className="shrink-0">
             <Image
               src="/nfctron-logo-dark.svg"
@@ -145,29 +114,17 @@ export default function SiteHeader({
               priority
             />
           </Link>
-          <DesktopModeSwitcher active={active} t={t} />
         </div>
 
-        <div className="hidden h-full items-center gap-9 lg:flex lg:justify-self-center">
-          {navLinks.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              aria-current={item.selected ? "page" : undefined}
-              className={item.selected ? navSelected : navIdle}
-            >
-              {t(item.label)}
-            </Link>
-          ))}
-        </div>
+        <DesktopModeSwitcher active={active} t={t} />
 
-        <div className="flex shrink-0 items-center gap-0.5 sm:gap-1 lg:justify-self-end">
+        <div className="flex shrink-0 items-center gap-0.5 sm:justify-self-end sm:gap-1">
           <MobileModeSwitcher active={active} t={t} />
           <LanguageMenu locale={locale} />
           <Link
             href={onHome ? "#support" : "/#support"}
             aria-label={t("Přejít na podporu návštěvníků")}
-            className="hidden h-7 items-center gap-1.5 rounded-full px-2 text-[10px] font-medium leading-none tracking-[0.01em] text-gray-500 transition hover:bg-gray-50 hover:text-primary-700 sm:flex"
+            className="flex h-7 items-center gap-1.5 rounded-full px-2 text-[10px] font-medium leading-none tracking-[0.01em] text-gray-500 transition hover:bg-gray-50 hover:text-primary-700"
           >
             <SupportIcon /> <span className="hidden xl:inline">Support</span>
           </Link>
@@ -177,32 +134,6 @@ export default function SiteHeader({
           >
             {t("Přihlásit se")}
           </Link>
-
-          <details className="relative lg:hidden">
-            <summary
-              className="flex h-7 w-7 cursor-pointer list-none items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-50 hover:text-primary-700 [&::-webkit-details-marker]:hidden"
-              aria-label={t("Otevřít menu")}
-            >
-              <MenuIcon />
-            </summary>
-            <div className="absolute right-0 top-9 z-50 min-w-44 rounded-xl border border-gray-200 bg-white p-1.5 shadow-lg shadow-primary-900/5">
-              {navLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`block rounded-lg px-3 py-2.5 text-xs ${item.selected ? "bg-primary-50 font-medium text-primary-700" : "text-gray-600 hover:bg-gray-50"}`}
-                >
-                  {t(item.label)}
-                </Link>
-              ))}
-              <Link
-                href={onHome ? "#support" : "/#support"}
-                className="block rounded-lg px-3 py-2.5 text-xs text-gray-600 hover:bg-gray-50 sm:hidden"
-              >
-                Support
-              </Link>
-            </div>
-          </details>
         </div>
       </nav>
     </header>

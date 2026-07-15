@@ -24,6 +24,7 @@ export interface PromoItem {
   accent: string;
   action?: string;
   image?: string;
+  url?: string;
 }
 
 export interface SupportItem {

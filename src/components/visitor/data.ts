@@ -166,7 +166,7 @@ export const catalogEvents = [
   .map((id) => events.find((event) => event.id === id))
   .filter((event): event is EventItem => Boolean(event));
 
-export const series: PromoItem[] = [
+export const eventSeries: PromoItem[] = [
   {
     title: "Hrady CZ 2026",
     meta: "8 hradů · 8 víkendů",
@@ -189,6 +189,33 @@ export const series: PromoItem[] = [
     accent: "from-sky-900 via-blue-600 to-cyan-300",
     image:
       "https://images.nfctron.com/organizers/b1fb6904-12c0-403d-9675-1ac61ef440b7.jpg",
+  },
+  {
+    title: "Pam Rabbit – planet 33 tour 2027",
+    meta: "5 měst · únor 2027",
+    action: "Vybrat město",
+    accent: "from-fuchsia-950 via-violet-700 to-cyan-400",
+    image:
+      "https://images.nfctron.com/event-groups/084a9bee-2abd-4e90-9bda-6f688cc570a8.png",
+    url: "https://tickets.nfctron.com/tour/pam-rabbit-planet-33-tour-2027",
+  },
+  {
+    title: "JelenFest 2026",
+    meta: "20 zastávek po celém Česku",
+    action: "Vybrat koncert",
+    accent: "from-amber-900 via-orange-600 to-yellow-300",
+    image:
+      "https://images.nfctron.com/event-groups/2383f6ba-b877-45de-aa18-a3306dbba51e.jpg",
+    url: "https://tickets.nfctron.com/tour/jelenfest-2026",
+  },
+  {
+    title: "Jan Nedvěd ml. & Příbuzní 2026",
+    meta: "9 koncertů v prodeji · 2026–2027",
+    action: "Vybrat koncert",
+    accent: "from-stone-900 via-amber-800 to-orange-300",
+    image:
+      "https://images.nfctron.com/event-groups/57f567d3-b42a-417b-9f1a-87ea1b6280a9.png",
+    url: "https://tickets.nfctron.com/tour/jan-nedved-ml-a-pribuzni-2026?utm_source=website&utm_medium=nfctron_hp&utm_campaign=popular",
   },
 ];
 

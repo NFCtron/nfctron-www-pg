@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { PromoItem, Translator } from "./types";
 
 export default function PromoCard({
@@ -36,9 +37,18 @@ export default function PromoCard({
           </h3>
           <p className="mt-1 text-xs text-gray-500">{t(item.meta)}</p>
         </div>
-        <button className="shrink-0 rounded-full border border-primary-300 px-4 py-2 text-xs font-medium text-primary-700 transition hover:bg-primary-50">
-          {t(item.action ?? "Detail akce")}
-        </button>
+        {item.url ? (
+          <Link
+            href={item.url}
+            className="shrink-0 rounded-full border border-primary-300 px-4 py-2 text-xs font-medium text-primary-700 transition hover:bg-primary-50"
+          >
+            {t(item.action ?? "Detail akce")}
+          </Link>
+        ) : (
+          <span className="shrink-0 rounded-full border border-primary-300 px-4 py-2 text-xs font-medium text-primary-700">
+            {t(item.action ?? "Detail akce")}
+          </span>
+        )}
       </div>
     </article>
   );

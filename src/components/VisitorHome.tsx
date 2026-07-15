@@ -25,7 +25,7 @@ export default function VisitorHome({ locale }: { locale: Locale }) {
       <main>
         <HeroSection t={t} />
         <CampaignFeature campaign={clickToPayCampaign} locale={locale} />
-        <CollectionsSections t={t} />
+        <CollectionsSections t={t} locale={locale} />
         <BenefitsSection t={t} />
         <EventsCatalogSection t={t} />
         <BlogSection t={t} />

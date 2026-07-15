@@ -1,9 +1,11 @@
 import Link from "next/link";
 import EventCard from "./EventCard";
 import PromoCard from "./PromoCard";
+import SeriesSection from "./SeriesSection";
 import { ArrowIcon } from "./icons";
-import { events2027, featuredEvent, series } from "./data";
+import { events2027, featuredEvent } from "./data";
 import type { Translator } from "./types";
+import type { Locale } from "@/i18n/config";
 
 export function HeroSection({ t }: { t: Translator }) {
   return (
@@ -42,31 +44,16 @@ export function HeroSection({ t }: { t: Translator }) {
   );
 }
 
-export function CollectionsSections({ t }: { t: Translator }) {
+export function CollectionsSections({
+  t,
+  locale,
+}: {
+  t: Translator;
+  locale: Locale;
+}) {
   return (
     <>
-      <section className="section bg-white">
-        <div className="container-fluid">
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[.16em] text-primary-600">
-                {t("Více míst, jeden zážitek")}
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-[-.035em] text-primary-900">
-                {t("Sériové akce")}
-              </h2>
-            </div>
-            <button className="hidden text-sm font-medium text-primary-700 sm:block">
-              {t("Zobrazit všechny")} →
-            </button>
-          </div>
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {series.map((item) => (
-              <PromoCard key={item.title} item={item} t={t} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <SeriesSection locale={locale} />
       <section className="section bg-primary-900 text-white">
         <div className="container-fluid">
           <div className="max-w-2xl">

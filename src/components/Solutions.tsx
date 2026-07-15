@@ -6,7 +6,7 @@ interface Solution {
   description: string;
   cta: string;
   href: string;
-  color: 'blue' | 'green' | 'purple' | 'orange';
+  color: 'purple' | 'aqua' | 'violet' | 'orange';
 }
 
 const solutions: Solution[] = [
@@ -16,7 +16,7 @@ const solutions: Solution[] = [
     description: 'Úplná kontrola nad vašimi akcemi, jednoduchý provoz a reálné analytics.',
     cta: 'Prozkoumat',
     href: '/for-organizers',
-    color: 'blue',
+    color: 'purple',
   },
   {
     icon: '🛍️',
@@ -24,7 +24,7 @@ const solutions: Solution[] = [
     description: 'SoftPOS, Nautilus a mobile řešení pro mobilní prodej.',
     cta: 'Prozkoumat',
     href: '/for-retailers',
-    color: 'green',
+    color: 'aqua',
   },
   {
     icon: '👥',
@@ -32,7 +32,7 @@ const solutions: Solution[] = [
     description: 'Seamless experience — QR kódy, RFID wristbandy, bezpečné platby.',
     cta: 'Prozkoumat',
     href: '/for-visitors',
-    color: 'purple',
+    color: 'violet',
   },
   {
     icon: '🔗',
@@ -45,10 +45,10 @@ const solutions: Solution[] = [
 ];
 
 const colorClasses = {
-  blue: 'bg-blue-50 border-blue-200 hover:border-blue-300',
-  green: 'bg-green-50 border-green-200 hover:border-green-300',
-  purple: 'bg-purple-50 border-purple-200 hover:border-purple-300',
-  orange: 'bg-orange-50 border-orange-200 hover:border-orange-300',
+  purple: 'bg-primary-50 border-primary-200 hover:border-primary-300',
+  aqua: 'bg-aqua-50 border-aqua-200 hover:border-aqua-500',
+  violet: 'bg-primary-100/60 border-primary-200 hover:border-primary-500',
+  orange: 'bg-accent-50 border-accent-200 hover:border-accent-500',
 };
 
 export default function Solutions() {
@@ -67,7 +67,7 @@ export default function Solutions() {
             <Link
               key={idx}
               href={solution.href}
-              className={`${colorClasses[solution.color]} rounded-xl border-2 p-8 transition-all duration-300 hover:shadow-lg group`}
+              className={`${colorClasses[solution.color]} rounded-md border p-7 transition-all duration-300 hover:shadow-md group`}
             >
               <div className="text-5xl mb-4 group-hover:scale-110 transition-transform inline-block">
                 {solution.icon}

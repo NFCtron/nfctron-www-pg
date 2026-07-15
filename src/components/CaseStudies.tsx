@@ -57,7 +57,7 @@ export default function CaseStudies() {
           {caseStudies.map((study, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:border-primary-300 transition-all duration-300"
+              className="bg-white rounded-md border border-gray-200 p-7 hover:shadow-md hover:border-primary-300 transition-all duration-300"
             >
               <div className="text-5xl mb-4">{study.logo}</div>
               

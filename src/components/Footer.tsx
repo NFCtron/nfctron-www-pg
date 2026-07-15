@@ -1,15 +1,16 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-[#06070a] text-white py-16">
       <div className="container-fluid">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Company */}
           <div>
-            <h3 className="font-bold text-lg mb-4">NFCtron</h3>
+            <Image src="/nfctron-logo-white.svg" alt="NFCtron" width={106} height={20} className="mb-4" />
             <p className="text-gray-400 text-sm">
               Infrastruktura pro moderní akce. Platby, vstupenky, data a provoz v jednom ekosystému.
             </p>

@@ -59,7 +59,7 @@ export default function Products() {
           {products.map((product, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-xl hover:border-primary-300 transition-all duration-300 group"
+              className="hub-panel p-8 hover:shadow-lg hover:border-primary-300 transition-all duration-300 group"
             >
               <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
                 {product.icon}

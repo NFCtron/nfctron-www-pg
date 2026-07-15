@@ -52,8 +52,9 @@ export default function Stats() {
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="text-center p-8 rounded-xl border border-gray-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+              className="hub-panel text-left p-6 hover:border-primary-300 hover:shadow-md transition-all duration-300"
             >
+              <div className="flex items-center justify-between mb-4"><span className="hub-icon">↗</span><span className="text-xs text-gray-400">ⓘ</span></div>
               <div className="text-4xl md:text-5xl font-black text-primary-600 mb-2">
                 {isMounted ? stat.value : '0'}
               </div>

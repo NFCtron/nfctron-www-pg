@@ -35,6 +35,23 @@ function SupportIcon() {
   );
 }
 
+function ChevronDownIcon() {
+  return (
+    <svg
+      className="h-2.5 w-2.5 shrink-0"
+      viewBox="0 0 12 12"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m3.25 4.75 2.75 2.5 2.75-2.5" />
+    </svg>
+  );
+}
+
 function DesktopModeSwitcher({
   active,
   t,
@@ -72,9 +89,11 @@ function MobileModeSwitcher({
 
   return (
     <details className="relative sm:hidden">
-      <summary className="flex h-7 cursor-pointer list-none items-center gap-1 rounded-full bg-gray-100 px-2 text-[8px] font-medium leading-none text-gray-600 [&::-webkit-details-marker]:hidden">
-        {t(activeMode.label)}{" "}
-        <span className="text-[8px] text-gray-400">⌄</span>
+      <summary className="flex h-7 cursor-pointer list-none items-center gap-1.5 whitespace-nowrap rounded-full bg-gray-100 px-2.5 text-[8px] font-medium leading-none text-gray-600 [&::-webkit-details-marker]:hidden">
+        <span>{t(activeMode.label)}</span>
+        <span className="flex items-center justify-center text-gray-400">
+          <ChevronDownIcon />
+        </span>
       </summary>
       <div className="absolute right-0 top-9 z-50 min-w-32 rounded-xl border border-gray-200 bg-white p-1.5 shadow-lg shadow-primary-900/5">
         {MODES.map((mode) => (

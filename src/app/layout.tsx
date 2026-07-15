@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Poppins } from "next/font/google";
 import { getLocale } from "@/i18n/server";
 import { seo } from "@/i18n/config";
+import { SITE_URL } from "@/config/site";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -21,11 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const content = seo[locale];
   return {
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.nfctron.com",
-    ),
+    metadataBase: new URL(SITE_URL),
     title: content.title,
     description: content.description,
+    robots: { index: true, follow: true },
     icons: {
       icon: [
         { url: "/favicon.ico" },

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Poppins } from "next/font/google";
+import { getLocale } from '@/i18n/server';
+import { seo } from '@/i18n/config';
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,27 +17,27 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "NFCtron — Akce, vstupenky a bezstarostné placení",
-  description: "Objevte festivaly, koncerty, sportovní a další akce. Kupte vstupenky a mějte platby i vrácení kreditu v jednom NFCtron účtu.",
-  icons: {
-    icon: "/favicon.ico",
-  },
-  openGraph: {
-    title: "NFCtron — To nejlepší se děje právě teď",
-    description: "Akce, vstupenky, platby a vrácení kreditu v jednom NFCtron účtu.",
-    type: "website",
-    locale: "en_US",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const content = seo[locale];
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.nfctron.com'),
+    title: content.title,
+    description: content.description,
+    icons: { icon: '/favicon.ico' },
+    openGraph: { title: content.title, description: content.description, type: 'website', locale: locale === 'cs' ? 'cs_CZ' : 'en_US', images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'NFCtron' }] },
+    twitter: { card: 'summary_large_image', title: content.title, description: content.description, images: ['/opengraph-image'] },
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
   return (
-    <html lang="cs" className={`${poppins.variable} ${dmSans.variable}`}>
+    <html lang={locale} className={`${poppins.variable} ${dmSans.variable}`}>
       <body className="font-sans antialiased">
         {children}
       </body>

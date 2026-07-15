@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes recommendation-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recommendation-reveal {
+  animation: recommendation-in 320ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recommendation-reveal {
+    animation: none;
+  }
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
@@ -11,11 +32,20 @@
     @apply bg-white text-[#212529];
   }
 
-  a, button, summary {
+  a,
+  button,
+  summary {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2;
   }
 
-  h1, h2, h3, h4, h5, h6, button, .btn {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  .btn {
     @apply font-display;
   }
 }
@@ -69,8 +99,12 @@
     @apply bg-white font-sans text-[#171717];
   }
 
-  .tickets-ui h1, .tickets-ui h2, .tickets-ui h3, .tickets-ui h4,
-  .tickets-ui button, .tickets-ui .btn {
+  .tickets-ui h1,
+  .tickets-ui h2,
+  .tickets-ui h3,
+  .tickets-ui h4,
+  .tickets-ui button,
+  .tickets-ui .btn {
     @apply font-sans;
   }
 

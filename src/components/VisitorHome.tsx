@@ -14,16 +14,20 @@ import {
 import { BlogSection, SupportSection } from "./visitor/EditorialSections";
 import EventsCatalogSection from "./visitor/EventsCatalogSection";
 import { clickToPayCampaign } from "./visitor/data";
+import EventTrendsSection from "@/features/event-trends/EventTrendsSection";
+import { getEventTrendGroups } from "@/features/event-trends/get-event-trends";
 import { translate, type Locale } from "@/i18n/config";
 
-export default function VisitorHome({ locale }: { locale: Locale }) {
+export default async function VisitorHome({ locale }: { locale: Locale }) {
   const t = (value: string) => translate(locale, value);
+  const eventTrendGroups = await getEventTrendGroups();
 
   return (
     <div className="tickets-ui min-h-screen">
       <SiteHeader locale={locale} />
       <main>
         <HeroSection t={t} />
+        <EventTrendsSection groups={eventTrendGroups} locale={locale} />
         <CampaignFeature campaign={clickToPayCampaign} locale={locale} />
         <CollectionsSections t={t} locale={locale} />
         <BenefitsSection t={t} />

@@ -1,6 +1,6 @@
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
-import { AudienceHero } from "./audience/AudiencePage";
+import { AudienceHeroSection } from "./audience/AudiencePage";
 import ActionLink from "./ui/ActionLink";
 import ArtistRoster from "@/features/artists/home/ArtistRoster";
 import BookingEnquiryForm from "@/features/artists/home/BookingEnquiryForm";
@@ -14,26 +14,22 @@ export default function ArtistHome({ locale }: { locale: Locale }) {
     <div className="min-h-screen bg-white text-primary-900">
       <SiteHeader locale={locale} active="artists" />
       <main>
-        <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-20">
-          <div className="mx-auto max-w-[1120px]">
-            <AudienceHero
-              badge="NFCtron Artists"
-              eyebrow={content.heroEyebrow}
-              title={content.heroTitle}
-              description={content.heroDescription}
-              actions={
-                <div className="mt-8 flex flex-wrap justify-center gap-3">
-                  <ActionLink href="#pro-interprety" arrow>
-                    {content.artistAction}
-                  </ActionLink>
-                  <ActionLink href="#pro-poradatele" variant="secondary">
-                    {content.organizerAction}
-                  </ActionLink>
-                </div>
-              }
-            />
-          </div>
-        </section>
+        <AudienceHeroSection
+          badge="NFCtron Artists"
+          eyebrow={content.heroEyebrow}
+          title={content.heroTitle}
+          description={content.heroDescription}
+          actions={
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <ActionLink href="#pro-interprety" arrow>
+                {content.artistAction}
+              </ActionLink>
+              <ActionLink href="#pro-poradatele" variant="secondary">
+                {content.organizerAction}
+              </ActionLink>
+            </div>
+          }
+        />
 
         <ArtistRoster locale={locale} content={content} />
 

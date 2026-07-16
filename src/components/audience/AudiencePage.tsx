@@ -45,6 +45,31 @@ export function AudienceHero({
   );
 }
 
+export function AudienceHeroSection({
+  badge,
+  eyebrow,
+  title,
+  description,
+  actions,
+}: Pick<
+  AudiencePageProps,
+  "badge" | "eyebrow" | "title" | "description" | "actions"
+>) {
+  return (
+    <section className="min-h-[482px] px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[504px] lg:px-12 lg:py-20">
+      <div className="mx-auto w-full max-w-[1120px]">
+        <AudienceHero
+          badge={badge}
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
+          actions={actions}
+        />
+      </div>
+    </section>
+  );
+}
+
 export function AudiencePage({
   locale,
   mode,
@@ -58,16 +83,16 @@ export function AudiencePage({
   return (
     <div className="min-h-screen bg-white text-primary-900">
       <SiteHeader locale={locale} active={mode} />
-      <main className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
-        <div className="mx-auto max-w-[1120px]">
-          <AudienceHero
-            badge={badge}
-            eyebrow={eyebrow}
-            title={title}
-            description={description}
-            actions={actions}
-          />
-          {children}
+      <main>
+        <AudienceHeroSection
+          badge={badge}
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
+          actions={actions}
+        />
+        <div className="px-5 pb-14 sm:px-8 sm:pb-20 lg:px-12">
+          <div className="mx-auto max-w-[1120px]">{children}</div>
         </div>
       </main>
       <SiteFooter locale={locale} />

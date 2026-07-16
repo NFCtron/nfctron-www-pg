@@ -3,7 +3,12 @@ import { AudienceFeatureCard, AudiencePage } from "./audience/AudiencePage";
 import { translate, type Locale } from "@/i18n/config";
 
 const artists = [
-  { name: "Sebastian", initials: "S", tone: "from-blue-100 to-indigo-50" },
+  {
+    name: "Sebastian",
+    initials: "S",
+    tone: "from-blue-100 to-indigo-50",
+    href: "/for-artists/sebastian",
+  },
   {
     name: "Elizabeth Kopecká",
     initials: "EK",
@@ -42,9 +47,10 @@ export default function ArtistHome({ locale }: { locale: Locale }) {
         </div>
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           {artists.map((artist) => (
-            <article
+            <Link
               key={artist.name}
-              className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4"
+              href={artist.href ?? "/for-artists"}
+              className="group flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-4 transition hover:border-primary-200 hover:bg-primary-50/30"
             >
               <span
                 className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${artist.tone} text-xs font-semibold text-primary-700`}
@@ -59,7 +65,10 @@ export default function ArtistHome({ locale }: { locale: Locale }) {
                   {t("Hudební projekt")}
                 </p>
               </div>
-            </article>
+              <span className="ml-auto text-sm text-gray-300 transition group-hover:translate-x-0.5 group-hover:text-primary-600">
+                →
+              </span>
+            </Link>
           ))}
         </div>
       </section>

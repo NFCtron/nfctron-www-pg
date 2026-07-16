@@ -53,6 +53,45 @@ const en: Record<string, string> = {
   "Prodej merchandise a lepší přehled o tom, co vaše publikum opravdu zajímá.":
     "Merchandise sales and a clearer view of what your audience really wants.",
   "Interpreti, se kterými pracujeme": "Artists we work with",
+  "Zpět na interprety": "Back to artists",
+  "Emoce, energie a show, která funguje na klubovém pódiu i před festivalovým publikem.":
+    "Emotion, energy and a show built for club stages and festival crowds alike.",
+  "Poptat booking": "Request booking",
+  "Zobrazit koncerty": "View shows",
+  "Aktivní akce": "Active shows",
+  "Odehráno v roce 2026": "Played in 2026",
+  "Ještě letos": "Still to come this year",
+  "Potvrzeno na rok 2027": "Confirmed for 2027",
+  "Sebastian live": "Sebastian live",
+  "Generační výpověď, která naživo dostává nový rozměr.":
+    "A generational voice that takes on a new dimension live.",
+  "Sebastian propojuje silné melodie s moderní popovou produkcí a bezprostředním kontaktem s publikem. Jeho koncerty stojí na energii celé kapely, známých hitech i nové tvorbě.":
+    "Sebastian combines strong melodies, modern pop production and a direct connection with the audience. His concerts are driven by a full live band, familiar hits and new music.",
+  "NFCtron zajišťuje booking a postupně propojí koncertní nabídku, vstupenky a data z jednotlivých akcí na jednom místě.":
+    "NFCtron manages booking and will gradually connect show availability, tickets and event data in one place.",
+  "Poslouchejte Sebastiana": "Listen to Sebastian",
+  "Hudba, kterou fanoušci znají ještě před první notou na pódiu.":
+    "Music fans recognize before the first note is played on stage.",
+  "měsíčních posluchačů na Spotify": "monthly listeners on Spotify",
+  "streamů skladby Toulavá": "streams of Toulavá",
+  "zhlédnutí Toulavé na YouTube": "views of Toulavá on YouTube",
+  "Otevřít profil": "Open profile",
+  "Show postavená pro pódium": "A show built for the stage",
+  "Silná kapela. Velká energie. Efekty, které si publikum zapamatuje.":
+    "A powerful band. Big energy. Effects the audience will remember.",
+  "Sebastian nabízí plnohodnotnou koncertní show pro festivaly, městské slavnosti i samostatné koncerty. Rozsah produkce přizpůsobíme prostoru a technickým možnostem akce.":
+    "Sebastian delivers a complete live show for festivals, city celebrations and headline concerts. The production can be tailored to the venue and its technical setup.",
+  "Světelná show": "Lighting show",
+  "Pyro a ohňové efekty": "Pyro and fire effects",
+  "Sezóna 2026–2027": "2026–2027 season",
+  "Nejbližší koncerty": "Upcoming shows",
+  "Další termíny průběžně doplňujeme": "More dates are added regularly",
+  "V prodeji": "On sale",
+  "Již brzy": "Coming soon",
+  "Chcete Sebastiana na svou akci?": "Want Sebastian at your event?",
+  "Pošlete nám termín, místo, typ akce a předpokládanou kapacitu. Bookingový tým NFCtron se vám ozve s dostupností a dalšími kroky.":
+    "Send us the date, venue, event type and expected capacity. The NFCtron booking team will get back to you with availability and next steps.",
+  "Odeslat poptávku": "Send enquiry",
   "Hudební projekt": "Music project",
   "Technologie a služby pro akce": "Technology and services for events",
   "Vaše akce. Jeden propojený systém.": "Your event. One connected system.",

@@ -1,11 +1,10 @@
-import Link from "next/link";
 import EventCard from "./EventCard";
 import PromoCard from "./PromoCard";
 import SeriesSection from "./SeriesSection";
-import { ArrowIcon } from "./icons";
 import { events2027, featuredEvent } from "./data";
 import type { Translator } from "./types";
 import type { Locale } from "@/i18n/config";
+import ActionLink from "../ui/ActionLink";
 
 export function HeroSection({ t }: { t: Translator }) {
   return (
@@ -27,15 +26,12 @@ export function HeroSection({ t }: { t: Translator }) {
             )}
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href="#events" className="btn-primary">
-              {t("Prohlédnout akce")} <ArrowIcon />
-            </a>
-            <Link
-              href="https://pass.nfctron.com"
-              className="btn border border-gray-200 bg-white text-primary-900 hover:bg-gray-50"
-            >
+            <ActionLink href="#events" arrow>
+              {t("Prohlédnout akce")}
+            </ActionLink>
+            <ActionLink href="https://pass.nfctron.com" variant="secondary">
               {t("Můj NFCtron")}
-            </Link>
+            </ActionLink>
           </div>
         </div>
         <EventCard event={featuredEvent} t={t} large />

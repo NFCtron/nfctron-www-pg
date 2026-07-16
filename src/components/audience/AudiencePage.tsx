@@ -16,6 +16,35 @@ interface AudiencePageProps {
   children: ReactNode;
 }
 
+export function AudienceHero({
+  badge,
+  eyebrow,
+  title,
+  description,
+  actions,
+}: Pick<
+  AudiencePageProps,
+  "badge" | "eyebrow" | "title" | "description" | "actions"
+>) {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <span className="inline-flex rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.12em] text-primary-700">
+        {badge}
+      </span>
+      <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
+        {eyebrow}
+      </p>
+      <h1 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl">
+        {title}
+      </h1>
+      <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
+        {description}
+      </p>
+      {actions}
+    </div>
+  );
+}
+
 export function AudiencePage({
   locale,
   mode,
@@ -31,21 +60,13 @@ export function AudiencePage({
       <SiteHeader locale={locale} active={mode} />
       <main className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
         <div className="mx-auto max-w-[1120px]">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.12em] text-primary-700">
-              {badge}
-            </span>
-            <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
-              {eyebrow}
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl">
-              {title}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
-              {description}
-            </p>
-            {actions}
-          </div>
+          <AudienceHero
+            badge={badge}
+            eyebrow={eyebrow}
+            title={title}
+            description={description}
+            actions={actions}
+          />
           {children}
         </div>
       </main>

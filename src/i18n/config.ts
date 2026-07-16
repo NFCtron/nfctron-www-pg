@@ -53,6 +53,86 @@ const en: Record<string, string> = {
   "Prodej merchandise a lepší přehled o tom, co vaše publikum opravdu zajímá.":
     "Merchandise sales and a clearer view of what your audience really wants.",
   "Interpreti, se kterými pracujeme": "Artists we work with",
+  "NFCtron Artists": "NFCtron Artists",
+  "Ekosystém pro interprety": "An ecosystem for artists",
+  "Váš talent. Jeden ekosystém. Víc možností růst.":
+    "Your talent. One ecosystem. More ways to grow.",
+  "NFCtron propojuje vlastní prodej vstupenek, booking, distribuci hudby a investice do dalšího rozvoje interpreta.":
+    "NFCtron connects direct ticket sales, booking, music distribution and investment in the artist's continued growth.",
+  "Vše, co posouvá hudební projekt dál.":
+    "Everything that moves a music project forward.",
+  "Celý hudební projekt": "The whole music project",
+  Vstupenky: "Tickets",
+  "Vlastní prodej": "Direct sales",
+  Booking: "Booking",
+  "Nové koncerty": "New shows",
+  Distribuce: "Distribution",
+  "Hudba k fanouškům": "Music to fans",
+  Investice: "Investment",
+  "Prostor pro růst": "Room to grow",
+  "Interpreti a pořadatelé na jednom pódiu.":
+    "Artists and organizers on one stage.",
+  "Rozvíjíme místo, kde interpreti získají silnější prezentaci a nové příležitosti — a pořadatelé rychlou cestu k ověřenému bookingu.":
+    "We are building a place where artists gain stronger presentation and new opportunities — while organizers get a direct path to trusted booking.",
+  "Jsem interpret": "I am an artist",
+  "Pořádám akci": "I organize events",
+  "NFCtron roster": "NFCtron roster",
+  "Interpreti, které zastupujeme a rozvíjíme.":
+    "Artists we represent and develop.",
+  "Nejsou pro nás jen položkou v katalogu. Každému interpretovi postupně stavíme vlastní prezentaci, booking a propojení s akcemi.":
+    "They are not just entries in a catalogue. We are gradually building every artist a dedicated profile, booking path and connection to events.",
+  "Pop · live band · festivalová show": "Pop · live band · festival show",
+  "Pop · koncertní vystoupení": "Pop · live performance",
+  "Pop rock · klubová a festivalová show": "Pop rock · club and festival show",
+  "Profil a booking": "Profile and booking",
+  "Profil připravujeme": "Profile coming soon",
+  "Pro interprety": "For artists",
+  "Váš projekt má dostat prostor růst.": "Your project deserves room to grow.",
+  "Pomůžeme vám proměnit hudební projekt v přehlednou nabídku pro pořadatele a fanoušky. Od první poptávky až po vyprodanou show.":
+    "We help turn your music project into a clear proposition for organizers and fans. From the first enquiry to a sold-out show.",
+  "Chci spolupracovat": "I want to collaborate",
+  "Nejen služba. Partner pro celý hudební projekt.":
+    "More than a service. A partner for the whole music project.",
+  "Stavíme vlastní ekosystém interpreta. Propojujeme vydávání hudby, prodej vstupenek, booking i kapitál pro další růst.":
+    "We build an artist's own ecosystem by connecting music releases, ticket sales, booking and capital for further growth.",
+  "Vlastní prodej vstupenek": "Direct ticket sales",
+  "Prodej pod jménem interpreta, vlastní koncerty a přímý vztah s fanoušky bez zbytečných mezičlánků.":
+    "Sales under the artist's own name, headline shows and a direct relationship with fans without unnecessary middlemen.",
+  "Vlastní booking": "Dedicated booking",
+  "Aktivně hledáme nové příležitosti a propojujeme interpreta s pořadateli, kterým jeho show dává smysl.":
+    "We actively seek new opportunities and connect the artist with organizers whose events are the right fit.",
+  "Vlastní distribuce": "Dedicated distribution",
+  "Pomáháme dostat hudbu k posluchačům, rozvíjet digitální dosah a propojit vydání s živými koncerty.":
+    "We help music reach listeners, grow its digital audience and connect releases with live shows.",
+  "Investice do hudby": "Investment in music",
+  "Vstupujeme do projektů, kterým věříme — od nové tvorby a obsahu až po rozvoj koncertní show.":
+    "We invest in projects we believe in — from new music and content to the development of the live show.",
+  "Booking a nové příležitosti": "Booking and new opportunities",
+  "Propojujeme interprety s pořadateli a pomáháme proměnit poptávku v dobře připravenou show.":
+    "We connect artists with organizers and help turn an enquiry into a well-prepared show.",
+  "Vlastní profil a koncerty": "Your own profile and shows",
+  "Jedno místo pro představení interpreta, termíny koncertů, vstupenky a přímou bookingovou poptávku.":
+    "One place for the artist story, show dates, tickets and direct booking enquiries.",
+  "Data, která pomáhají růst": "Data that supports growth",
+  "Postupně propojíme prodeje, návštěvnost a zájem fanoušků do srozumitelného přehledu.":
+    "We will gradually connect sales, attendance and fan interest in one clear overview.",
+  "Interpret, který sedne právě vaší akci.": "The right artist for your event.",
+  "Na jednom místě uvidíte charakter show, koncertní možnosti i cestu k bookingu. O zbytek se postará náš tým.":
+    "See the character of the show, performance options and the path to booking in one place. Our team handles the rest.",
+  "Poptat interpreta": "Enquire about an artist",
+  "Vyberte interpreta": "Choose an artist",
+  "Rychle porovnejte styl, formát vystoupení a produkční možnosti pro svou akci.":
+    "Quickly compare style, performance format and production options for your event.",
+  "Pošlete poptávku": "Send an enquiry",
+  "Stačí termín, místo, typ akce a kapacita. Bookingový tým ověří dostupnost.":
+    "Just share the date, venue, event type and capacity. The booking team will check availability.",
+  "Připravíme vystoupení": "We prepare the performance",
+  "Propojíme booking s produkcí a podle akce také se vstupenkami a dalšími službami NFCtron.":
+    "We connect booking with production and, where relevant, tickets and other NFCtron services.",
+  "Spojme správného interpreta se správnou akcí.":
+    "Let us connect the right artist with the right event.",
+  "Ať hledáte další koncertní příležitost, nebo jméno pro svůj program, začněte krátkou poptávkou.":
+    "Whether you are looking for your next show or the right name for your line-up, start with a short enquiry.",
   "Zpět na interprety": "Back to artists",
   "Emoce, energie a show, která funguje na klubovém pódiu i před festivalovým publikem.":
     "Emotion, energy and a show built for club stages and festival crowds alike.",

@@ -4,12 +4,12 @@ import { artistProfiles } from "@/features/artists/profile/profiles";
 import { getLocale } from "@/i18n/server";
 
 export const metadata: Metadata = {
-  title: "Sebastian — koncerty a booking | NFCtron",
+  title: "Elizabeth Kopecká — booking | NFCtron",
   description:
-    "Koncerty, aktuální termíny a booking zpěváka Sebastiana. Poptávky zajišťuje NFCtron.",
+    "Oficiální profil Elizabeth Kopecké. Koncerty, hudba a booking pod NFCtron Artists.",
 };
 
-export default async function SebastianPage() {
+export default async function ElizabethKopeckaPage() {
   const locale = await getLocale();
-  return <ArtistProfile locale={locale} profile={artistProfiles.sebastian} />;
+  return <ArtistProfile locale={locale} profile={artistProfiles.elizabeth} />;
 }

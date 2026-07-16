@@ -4,12 +4,12 @@ import { artistProfiles } from "@/features/artists/profile/profiles";
 import { getLocale } from "@/i18n/server";
 
 export const metadata: Metadata = {
-  title: "Sebastian — koncerty a booking | NFCtron",
+  title: "Like-IT — booking | NFCtron",
   description:
-    "Koncerty, aktuální termíny a booking zpěváka Sebastiana. Poptávky zajišťuje NFCtron.",
+    "Oficiální profil kapely Like-IT. Koncerty, hudba a booking pod NFCtron Artists.",
 };
 
-export default async function SebastianPage() {
+export default async function LikeItPage() {
   const locale = await getLocale();
-  return <ArtistProfile locale={locale} profile={artistProfiles.sebastian} />;
+  return <ArtistProfile locale={locale} profile={artistProfiles.likeIt} />;
 }

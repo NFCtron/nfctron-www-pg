@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AudienceFeatureCard, AudiencePage } from "./audience/AudiencePage";
+import ActionLink from "./ui/ActionLink";
 import { translate, type Locale } from "@/i18n/config";
 
 const solutions = [
@@ -25,18 +26,12 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
 
   const actions = (
     <div className="mt-8 flex flex-wrap justify-center gap-3">
-      <a
-        href="mailto:sales@nfctron.com"
-        className="inline-flex h-9 items-center rounded-full bg-primary-700 px-5 text-[11px] font-medium text-white transition hover:bg-primary-900"
-      >
+      <ActionLink href="mailto:sales@nfctron.com">
         {t("Poptat řešení")}
-      </a>
-      <a
-        href="#solutions"
-        className="inline-flex h-9 items-center rounded-full border border-gray-200 px-5 text-[11px] font-medium text-primary-700 transition hover:bg-primary-50"
-      >
+      </ActionLink>
+      <ActionLink href="#solutions" variant="secondary">
         {t("Prohlédnout možnosti")}
-      </a>
+      </ActionLink>
     </div>
   );
 

@@ -19,4 +19,14 @@ export const INDEXABLE_ROUTES: IndexableRoute[] = [
     changeFrequency: "weekly",
     priority: 0.7,
   },
+  {
+    path: "/for-artists/elizabeth-kopecka",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    path: "/for-artists/like-it",
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
 ];

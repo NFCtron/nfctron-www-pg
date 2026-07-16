@@ -1,11 +1,21 @@
-import type { Metadata } from 'next';
-import ArtistHome from '@/components/ArtistHome';
-import { getLocale } from '@/i18n/server';
+import type { Metadata } from "next";
+import ArtistHome from "@/components/ArtistHome";
+import { getLocale } from "@/i18n/server";
 
-export const metadata: Metadata = {
-  title: 'Řešení pro interprety | NFCtron',
-  description: 'Vstupenky, merchandise a data z akcí pro interprety. Novou sekci NFCtron právě připravujeme.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  return locale === "cs"
+    ? {
+        title: "Interpreti a booking | NFCtron",
+        description:
+          "Profily interpretů, booking a propojení pořadatelů s hudebními projekty, které NFCtron zastupuje a rozvíjí.",
+      }
+    : {
+        title: "Artists and booking | NFCtron",
+        description:
+          "Artist profiles, booking and a direct connection between organizers and the music projects represented by NFCtron.",
+      };
+}
 
 export default async function ForArtistsPage() {
   const locale = await getLocale();

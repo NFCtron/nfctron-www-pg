@@ -200,7 +200,7 @@ export const artistProfiles = {
       "Energetic Czech pop rock, powerful hooks and real live momentum.",
     ),
     heroImage: "/artists/like-it/hero.jpg",
-    portraitImage: "/artists/like-it/portrait.jpg",
+    portraitImage: "/artists/like-it/hero.jpg",
     showImage: "/artists/like-it/show.jpg",
     bookingEmail: "booking@nfctron.com",
     bioEyebrow: localized("Like-IT live", "Like-IT live"),

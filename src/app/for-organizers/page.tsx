@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import OrganizerHome from "@/components/OrganizerHome";
+import OrganizerHome from "@/features/organizers/OrganizerHome";
 import { getLocale } from "@/i18n/server";
 import { createPageMetadata } from "@/lib/metadata";
 

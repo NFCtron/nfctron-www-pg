@@ -162,13 +162,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
 
       <label className={`relative ${labelClass}`}>
         {content.date}
-        <input
-          name="date"
-          type="date"
-          required
-          className={`${inputClass} appearance-none [&::-webkit-date-and-time-value]:min-h-5 [&::-webkit-date-and-time-value]:text-left`}
-          style={{ minWidth: 0, width: "100%", WebkitAppearance: "none" }}
-        />
+        <input name="date" type="date" required className={inputClass} />
       </label>
 
       <label className={labelClass}>

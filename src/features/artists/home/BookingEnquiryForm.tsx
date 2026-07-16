@@ -98,8 +98,9 @@ function ArrowRight() {
 
 export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
   const content = copy[locale];
+  const labelClass = "block min-w-0 text-[10px] font-medium text-gray-500";
   const inputClass =
-    "mt-2 h-11 w-full rounded-xl border border-gray-200 bg-white px-3.5 text-xs text-primary-900 outline-none transition placeholder:text-gray-300 focus:border-primary-300 focus:ring-2 focus:ring-primary-100";
+    "mt-2 block h-11 min-w-0 w-full max-w-full rounded-xl border border-gray-200 bg-white px-3.5 text-xs text-primary-900 outline-none transition placeholder:text-gray-300 focus:border-primary-300 focus:ring-2 focus:ring-primary-100";
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -120,7 +121,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
 
   return (
     <form onSubmit={submit} className="grid gap-4 sm:grid-cols-2">
-      <label className="text-[10px] font-medium text-gray-500 sm:col-span-2">
+      <label className={`${labelClass} sm:col-span-2`}>
         {content.eventName}
         <input
           name="eventName"
@@ -130,7 +131,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         />
       </label>
 
-      <label className="text-[10px] font-medium text-gray-500">
+      <label className={labelClass}>
         {content.company}
         <input
           name="company"
@@ -141,7 +142,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         />
       </label>
 
-      <label className="relative text-[10px] font-medium text-gray-500">
+      <label className={`relative ${labelClass}`}>
         {content.artist}
         <select
           name="artist"
@@ -159,12 +160,18 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         <SelectChevron />
       </label>
 
-      <label className="relative text-[10px] font-medium text-gray-500">
+      <label className={`relative ${labelClass}`}>
         {content.date}
-        <input name="date" type="date" required className={inputClass} />
+        <input
+          name="date"
+          type="date"
+          required
+          className={`${inputClass} appearance-none [&::-webkit-date-and-time-value]:min-h-5 [&::-webkit-date-and-time-value]:text-left`}
+          style={{ minWidth: 0, width: "100%", WebkitAppearance: "none" }}
+        />
       </label>
 
-      <label className="text-[10px] font-medium text-gray-500">
+      <label className={labelClass}>
         {content.place}
         <input
           name="place"
@@ -174,7 +181,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         />
       </label>
 
-      <label className="relative text-[10px] font-medium text-gray-500">
+      <label className={`relative ${labelClass}`}>
         {content.type}
         <select
           name="eventType"
@@ -192,7 +199,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         <SelectChevron />
       </label>
 
-      <label className="text-[10px] font-medium text-gray-500">
+      <label className={labelClass}>
         {content.capacity}
         <input
           name="capacity"
@@ -204,7 +211,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         />
       </label>
 
-      <label className="text-[10px] font-medium text-gray-500">
+      <label className={labelClass}>
         {content.phone}
         <input
           name="phone"
@@ -216,7 +223,7 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         />
       </label>
 
-      <label className="text-[10px] font-medium text-gray-500 sm:col-span-2">
+      <label className={`${labelClass} sm:col-span-2`}>
         {content.email}
         <input
           name="email"

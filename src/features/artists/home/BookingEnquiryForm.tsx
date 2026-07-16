@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import type { Locale } from "@/i18n/config";
 
 const copy = {
@@ -12,6 +12,7 @@ const copy = {
     artist: "Interpret",
     artistPlaceholder: "Vyberte interpreta",
     date: "Termín",
+    datePlaceholder: "dd. mm. rrrr",
     place: "Město a místo",
     placePlaceholder: "Např. Praha · Výstaviště",
     type: "Typ akce",
@@ -40,6 +41,7 @@ const copy = {
     artist: "Artist",
     artistPlaceholder: "Choose an artist",
     date: "Date",
+    datePlaceholder: "dd/mm/yyyy",
     place: "City and venue",
     placePlaceholder: "E.g. Prague · Exhibition Grounds",
     type: "Event type",
@@ -96,8 +98,36 @@ function ArrowRight() {
   );
 }
 
+function CalendarIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      className="h-3.5 w-3.5 shrink-0 text-primary-900"
+    >
+      <path
+        d="M3.5 2.5v2m9-2v2M2.5 6h11m-10-2h9a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.2"
+      />
+    </svg>
+  );
+}
+
+function formatDate(value: string, locale: Locale) {
+  if (!value) return null;
+  const [year, month, day] = value.split("-");
+  return locale === "cs"
+    ? `${Number(day)}. ${Number(month)}. ${year}`
+    : `${day}/${month}/${year}`;
+}
+
 export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
   const content = copy[locale];
+  const [dateValue, setDateValue] = useState("");
   const labelClass = "block min-w-0 text-[10px] font-medium text-gray-500";
   const inputClass =
     "mt-2 block h-11 min-w-0 w-full max-w-full rounded-xl border border-gray-200 bg-white px-3.5 text-xs text-primary-900 outline-none transition placeholder:text-gray-300 focus:border-primary-300 focus:ring-2 focus:ring-primary-100";
@@ -160,9 +190,31 @@ export default function BookingEnquiryForm({ locale }: { locale: Locale }) {
         <SelectChevron />
       </label>
 
-      <label className={`relative ${labelClass}`}>
+      <label className={labelClass}>
         {content.date}
-        <input name="date" type="date" required className={inputClass} />
+        <div className="relative mt-2">
+          <input
+            name="date"
+            type="date"
+            required
+            value={dateValue}
+            onInput={(event) => setDateValue(event.currentTarget.value)}
+            onChange={(event) => setDateValue(event.currentTarget.value)}
+            className={`${inputClass} !mt-0 cursor-pointer text-transparent caret-transparent [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-date-and-time-value]:opacity-0`}
+            style={{ WebkitTextFillColor: "transparent" }}
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 flex items-center justify-between gap-3 px-3.5"
+          >
+            <span
+              className={`text-xs ${dateValue ? "text-primary-900" : "text-gray-300"}`}
+            >
+              {formatDate(dateValue, locale) ?? content.datePlaceholder}
+            </span>
+            <CalendarIcon />
+          </span>
+        </div>
       </label>
 
       <label className={labelClass}>

@@ -1,4 +1,5 @@
 import ActionLink from "@/components/ui/ActionLink";
+import { AudienceHeroSection } from "@/components/audience/AudiencePage";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import OrganizerEnquiryForm from "./OrganizerEnquiryForm";
@@ -287,32 +288,22 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
     <div className="min-h-screen bg-white text-primary-900">
       <SiteHeader locale={locale} active="organizers" />
       <main>
-        <section className="px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28">
-          <div className="mx-auto flex max-w-[1120px] flex-col items-center text-center">
-            <div className="max-w-[900px]">
-              <span className="inline-flex rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.12em] text-primary-700">
-                {copy.badge}
-              </span>
-              <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
-                {copy.eyebrow}
-              </p>
-              <h1 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.052em] sm:text-6xl lg:text-[68px]">
-                {copy.title}
-              </h1>
-              <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
-                {copy.description}
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <ActionLink href="#contact" arrow>
-                  {copy.primaryCta}
-                </ActionLink>
-                <ActionLink href="#ecosystem" variant="secondary">
-                  {copy.secondaryCta}
-                </ActionLink>
-              </div>
+        <AudienceHeroSection
+          badge={copy.badge}
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          description={copy.description}
+          actions={
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <ActionLink href="#contact" arrow>
+                {copy.primaryCta}
+              </ActionLink>
+              <ActionLink href="#ecosystem" variant="secondary">
+                {copy.secondaryCta}
+              </ActionLink>
             </div>
-          </div>
-        </section>
+          }
+        />
 
         <section
           id="ecosystem"
@@ -402,11 +393,11 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
                     {copy.scopeTitle}
                   </h3>
                 </div>
-                <div className="grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2">
+                <div className="grid gap-2 sm:grid-cols-2">
                   {copy.scopes.map((scope, index) => (
                     <div
                       key={scope}
-                      className="flex items-center gap-4 bg-primary-900 px-5 py-4 text-sm font-medium"
+                      className="flex items-center gap-4 rounded-xl bg-white/[0.055] px-5 py-4 text-sm font-medium"
                     >
                       <span className="text-[9px] text-primary-300">
                         0{index + 1}
@@ -434,16 +425,18 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
               {copy.journeyTitle}
             </h2>
-            <div className="mt-9 grid border-y border-gray-200 md:grid-cols-3">
+            <div className="mt-9 grid gap-4 md:grid-cols-3">
               {copy.journey.map(([title, description], index) => (
                 <article
                   key={title}
-                  className="border-b border-gray-200 py-8 last:border-0 md:border-b-0 md:border-r md:px-8 md:first:pl-0 md:last:border-0 md:last:pr-0"
+                  className="rounded-2xl bg-[#f8f8fb] p-7 sm:p-8"
                 >
-                  <span className="text-[9px] font-semibold text-primary-400">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-[9px] font-semibold text-primary-500 shadow-[0_1px_0_rgba(15,23,42,0.04)]">
                     0{index + 1}
                   </span>
-                  <h3 className="mt-6 text-lg font-semibold">{title}</h3>
+                  <h3 className="mt-8 text-lg font-semibold tracking-[-0.025em]">
+                    {title}
+                  </h3>
                   <p className="mt-3 text-sm leading-6 text-gray-500">
                     {description}
                   </p>
@@ -466,11 +459,11 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
                 {copy.paymentsDescription}
               </p>
             </div>
-            <div className="grid border-t border-white/10 sm:grid-cols-2 lg:border-l lg:border-t-0">
+            <div className="grid gap-3 p-4 sm:grid-cols-2 lg:p-5">
               {copy.paymentTypes.map(([title, description], index) => (
                 <article
                   key={title}
-                  className={`p-7 sm:p-8 ${index < 2 ? "border-b border-white/10" : ""} ${index % 2 === 0 ? "sm:border-r sm:border-white/10" : ""}`}
+                  className="rounded-2xl bg-white/[0.05] p-7 sm:p-8"
                 >
                   <span className="text-[9px] font-semibold text-primary-300">
                     0{index + 1}

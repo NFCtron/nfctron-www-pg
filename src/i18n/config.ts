@@ -191,6 +191,10 @@ const en: Record<string, string> = {
     "Sales, revenue and operational data available to your team in real time.",
   "Technologie, které propojují návštěvníky, pořadatele, prodejce a interprety.":
     "Technology connecting visitors, organizers, vendors and artists.",
+  "Celý svět akcí v jednom ekosystému.":
+    "The entire world of events in one ecosystem.",
+  "Vstupenky, platby a technologie, které propojují návštěvníky, pořadatele, prodejce a interprety.":
+    "Tickets, payments and technology connecting visitors, organizers, vendors and artists.",
   "Pro koho": "For whom",
   "Pomoc a účet": "Help and account",
   "Nastavení cookies": "Cookie settings",

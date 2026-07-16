@@ -1,132 +1,124 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { translate, type Locale } from "@/i18n/config";
 import CookieSettingsButton from "@/features/privacy/CookieSettingsButton";
+
+const footerLinkClass = "transition hover:text-white";
 
 export default function SiteFooter({ locale }: { locale: Locale }) {
   const t = (value: string) => translate(locale, value);
 
   return (
-    <footer className="border-t border-gray-200 bg-[#fafafd] text-primary-900">
-      <div className="container-fluid py-10 sm:py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-          <div className="max-w-xs">
+    <footer className="bg-primary-900 text-white">
+      <div className="container-fluid py-12 sm:py-14">
+        <div className="grid gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.55fr_1fr_1fr_1fr] lg:gap-14">
+          <div className="max-w-sm">
             <Image
-              src="/nfctron-logo-dark.svg"
+              src="/nfctron-logo-white.svg"
               alt="NFCtron"
-              width={94}
-              height={18}
+              width={112}
+              height={22}
             />
-            <p className="mt-4 text-xs leading-5 text-gray-500">
+            <h2 className="mt-7 max-w-xs text-2xl font-semibold leading-tight tracking-[-0.04em]">
+              {t("Celý svět akcí v jednom ekosystému.")}
+            </h2>
+            <p className="mt-4 max-w-xs text-xs leading-6 text-white/55">
               {t(
-                "Technologie, které propojují návštěvníky, pořadatele, prodejce a interprety.",
+                "Vstupenky, platby a technologie, které propojují návštěvníky, pořadatele, prodejce a interprety.",
               )}
             </p>
           </div>
 
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-              {t("Pro koho")}
-            </p>
-            <div className="mt-4 flex flex-col items-start gap-3 text-xs text-gray-600">
-              <Link href="/" className="transition hover:text-primary-700">
-                {t("Návštěvníci")}
-              </Link>
-              <Link
-                href="/for-organizers"
-                className="transition hover:text-primary-700"
-              >
-                {t("Pořadatelé")}
-              </Link>
-              <Link
-                href="/for-retailers"
-                className="transition hover:text-primary-700"
-              >
-                {t("Prodejci")}
-              </Link>
-              <Link
-                href="/for-artists"
-                className="transition hover:text-primary-700"
-              >
-                {t("Interpreti")}
-              </Link>
-              <Link
-                href="/cards"
-                className="inline-flex items-center gap-1.5 transition hover:text-primary-700"
-              >
-                {t("Karty")}
-                <span className="text-[7px] font-semibold uppercase tracking-[0.08em] text-primary-400">
-                  Beta
-                </span>
-              </Link>
-            </div>
-          </div>
+          <FooterColumn title={t("Pro koho")}>
+            <Link href="/" className={footerLinkClass}>
+              {t("Návštěvníci")}
+            </Link>
+            <Link href="/for-organizers" className={footerLinkClass}>
+              {t("Pořadatelé")}
+            </Link>
+            <Link href="/for-retailers" className={footerLinkClass}>
+              {t("Prodejci")}
+            </Link>
+            <Link href="/for-artists" className={footerLinkClass}>
+              {t("Interpreti")}
+            </Link>
+            <Link
+              href="/cards"
+              className="inline-flex items-center gap-2 transition hover:text-white"
+            >
+              {t("Karty")}
+              <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[7px] font-semibold uppercase tracking-[0.08em] text-white/55">
+                Beta
+              </span>
+            </Link>
+          </FooterColumn>
 
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-              NFCtron
-            </p>
-            <div className="mt-4 flex flex-col items-start gap-3 text-xs text-gray-600">
-              <Link
-                href="/#events"
-                className="transition hover:text-primary-700"
-              >
-                {t("Akce")}
-              </Link>
-              <Link
-                href="/#how-it-works"
-                className="transition hover:text-primary-700"
-              >
-                {t("Jak to funguje")}
-              </Link>
-              <a
-                href="https://www.nfctron.com/cs/blog"
-                className="transition hover:text-primary-700"
-              >
-                Blog
-              </a>
-              <a
-                href="mailto:info@nfctron.com"
-                className="transition hover:text-primary-700"
-              >
-                {t("Kontakt")}
-              </a>
-            </div>
-          </div>
+          <FooterColumn title="NFCtron">
+            <Link href="/#events" className={footerLinkClass}>
+              {t("Akce")}
+            </Link>
+            <Link href="/#how-it-works" className={footerLinkClass}>
+              {t("Jak to funguje")}
+            </Link>
+            <a
+              href="https://www.nfctron.com/cs/blog"
+              className={footerLinkClass}
+            >
+              Blog
+            </a>
+            <a href="mailto:info@nfctron.com" className={footerLinkClass}>
+              {t("Kontakt")}
+            </a>
+          </FooterColumn>
 
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-400">
-              {t("Pomoc a účet")}
-            </p>
-            <div className="mt-4 flex flex-col items-start gap-3 text-xs text-gray-600">
-              <a
-                href="https://tickets.nfctron.com/receipt"
-                className="transition hover:text-primary-700"
-              >
-                Support
-              </a>
-              <a
-                href="https://tickets.nfctron.com/login"
-                className="transition hover:text-primary-700"
-              >
-                {t("Přihlásit se")}
-              </a>
-              <a
-                href="https://pass.nfctron.com"
-                className="transition hover:text-primary-700"
-              >
-                {t("Můj NFCtron")}
-              </a>
-              <CookieSettingsButton label={t("Nastavení cookies")} />
-            </div>
-          </div>
+          <FooterColumn title={t("Pomoc a účet")}>
+            <a
+              href="https://tickets.nfctron.com/receipt"
+              className={footerLinkClass}
+            >
+              Support
+            </a>
+            <a
+              href="https://tickets.nfctron.com/login"
+              className={footerLinkClass}
+            >
+              {t("Přihlásit se")}
+            </a>
+            <a href="https://pass.nfctron.com" className={footerLinkClass}>
+              {t("Můj NFCtron")}
+            </a>
+            <CookieSettingsButton
+              label={t("Nastavení cookies")}
+              className={footerLinkClass}
+            />
+          </FooterColumn>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-gray-200 pt-5 text-[10px] text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-3 text-[10px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} NFCtron</span>
           <span>{t("Na akcích bez zbytečných starostí.")}</span>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/35">
+        {title}
+      </p>
+      <div className="mt-5 flex flex-col items-start gap-3.5 text-xs text-white/60">
+        {children}
+      </div>
+    </div>
   );
 }

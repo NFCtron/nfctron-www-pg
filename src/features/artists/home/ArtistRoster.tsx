@@ -17,7 +17,7 @@ export default function ArtistRoster({
   const artists: ArtistProfileConfig[] = Object.values(artistProfiles);
 
   return (
-    <section className="border-y border-gray-200 bg-[#fafafd] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+    <section className="bg-[#fafafd] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
       <div className="mx-auto max-w-[1120px]">
         <div className="max-w-2xl">
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">

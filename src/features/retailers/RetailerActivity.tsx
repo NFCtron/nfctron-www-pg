@@ -48,6 +48,10 @@ function Arrow() {
   return <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>;
 }
 
+function localized(locale: Locale, value: Record<Locale, string>) {
+  return value[locale];
+}
+
 export default function RetailerActivity({ locale }: { locale: Locale }) {
   const c = copy[locale];
   return (
@@ -63,14 +67,14 @@ export default function RetailerActivity({ locale }: { locale: Locale }) {
 
         <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">
           {activeRetailEvents.map((event) => (
-            <a data-testid="retailer-event-card" key={event.title} href={event.href} target="_blank" rel="noreferrer" className="group overflow-hidden rounded-[24px] bg-[#f7f8fb] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(18,20,93,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">
+            <a data-testid="retailer-event-card" key={event.title} href={event.href} target="_blank" rel="noreferrer" className="group flex h-full flex-col overflow-hidden rounded-[24px] bg-[#f7f8fb] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(18,20,93,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-700">
               <div className="relative aspect-[16/9] overflow-hidden bg-gray-100">
                 <Image src={event.image} alt="" fill className="object-cover transition duration-500 group-hover:scale-[1.025]" sizes="(max-width: 768px) 100vw, 33vw" />
               </div>
-              <div className="p-5 sm:p-6">
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
                 <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-blue-700">{c.eventStatus}</p>
                 <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] sm:text-xl">{event.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-gray-500">{event.date}<br />{event.place}</p>
+                <p className="mt-2 text-xs leading-5 text-gray-500">{localized(locale, event.date)}<br />{localized(locale, event.place)}</p>
               </div>
             </a>
           ))}
@@ -102,13 +106,13 @@ export default function RetailerActivity({ locale }: { locale: Locale }) {
 
         <div className="mt-10 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
           {activeRetailers.map((retailer) => (
-            <div data-testid="active-vendor-card" key={retailer.name} className="group flex min-h-[138px] items-start gap-4 rounded-2xl bg-white p-5 ring-1 ring-gray-200/80 transition duration-200 hover:-translate-y-0.5 hover:bg-[#fbfbfe] hover:shadow-[0_14px_35px_rgba(18,20,93,0.07)]">
+            <div data-testid="active-vendor-card" key={retailer.name} className="group flex min-h-[156px] items-start gap-4 rounded-2xl bg-white p-5 ring-1 ring-gray-200/80 transition duration-200 hover:-translate-y-0.5 hover:bg-[#fbfbfe] hover:shadow-[0_14px_35px_rgba(18,20,93,0.07)]">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-50 text-primary-700 transition group-hover:bg-primary-100"><VendorIcon type={retailer.icon} /></div>
-              <div className="min-w-0 pt-0.5">
+              <div className="flex min-h-[114px] min-w-0 flex-1 flex-col pt-0.5">
                 <h3 className="text-base font-semibold leading-snug tracking-[-0.025em]">{retailer.name}</h3>
-                <p className="mt-1 text-xs font-medium text-primary-700">{retailer.category}</p>
+                <p className="mt-1 text-xs font-medium text-primary-700">{localized(locale, retailer.category)}</p>
                 <p className="mt-1 text-[11px] leading-5 text-gray-400">{retailer.company}</p>
-                <p className="mt-2 text-[11px] leading-5 text-gray-500">{retailer.activeAt}</p>
+                <p className="mt-auto pt-3 text-[11px] leading-5 text-gray-500">{localized(locale, retailer.activeAt)}</p>
               </div>
             </div>
           ))}

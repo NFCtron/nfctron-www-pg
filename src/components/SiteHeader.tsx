@@ -6,6 +6,7 @@ import { translate, type Locale } from "@/i18n/config";
 type SiteMode =
   | "home"
   | "organizers"
+  | "production"
   | "retailers"
   | "artists"
   | "music"
@@ -27,7 +28,8 @@ const MODES: Array<{
   { id: "retailers", label: "Prodejci", href: "/for-retailers" },
   { id: "artists", label: "Interpreti", href: "/for-artists" },
   { id: "music", label: "Hudba", href: "/music" },
-  { id: "cards", label: "Karty", href: "/cards", beta: true },
+  { id: "cards", label: "NFCtron Card", href: "/cards", beta: true },
+  { id: "production", label: "Produkce", href: "/production" },
 ];
 
 function SupportIcon() {

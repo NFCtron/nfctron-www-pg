@@ -10,7 +10,11 @@ const copy = {
     description:
       "NFCtron propojuje prodejce, pořadatele a provozní partnery. Od prvního spojení v Marketplace až po tržby, vyúčtování a podporu přímo na akci.",
     vendorAction: "Chci prodávat na akcích",
+    vendorRouteLabel: "Pro prodejce",
+    vendorRouteBody: "Najděte aktivní akce a nabídněte svůj koncept.",
     organizerAction: "Hledám prodejce",
+    organizerRouteLabel: "Pro pořadatele",
+    organizerRouteBody: "Vyberte ověřené prodejce pro svou akci.",
     marketplaceEyebrow: "NFCtron Hub Marketplace",
     marketplaceTitle: "Když chcete být součástí další akce.",
     marketplaceBody:
@@ -37,8 +41,8 @@ const copy = {
     trustTitle: "Prodejce má prodávat. O platby a podporu se opře o NFCtron.",
     trustBody:
       "Pokud akce běží na NFCtron, držíme jasný proces od každé platby až po vyúčtování. Prodejce má přehled o tržbách, komunikační podporu a jistotu, že ví, co se děje před akcí, na místě i po ní.",
-    stat: "1 500",
-    statLabel: "prodejců, se kterými umíme operovat napříč akcemi",
+    stat: "1 150",
+    statLabel: "prodejců využívá systém NFCtron každou sezonu",
     trustItems: [
       ["Jistota tržeb", "Platby procházejí systémem NFCtron a prodejce má tržby i provozní data přehledně v NFCtron Hub."],
       ["Jasné vyúčtování", "Od uzavření prodeje po předání podkladů má každý krok svého vlastníka."],
@@ -58,7 +62,11 @@ const copy = {
     description:
       "NFCtron connects vendors, organizers and operating partners — from the first Marketplace match to revenue, settlement and on-site support.",
     vendorAction: "I want to sell at events",
+    vendorRouteLabel: "For vendors",
+    vendorRouteBody: "Find active events and offer your concept.",
     organizerAction: "I am looking for vendors",
+    organizerRouteLabel: "For organizers",
+    organizerRouteBody: "Choose trusted vendors for your event.",
     marketplaceEyebrow: "NFCtron Hub Marketplace",
     marketplaceTitle: "Where a great event meets the right vendor.",
     marketplaceBody:
@@ -85,8 +93,8 @@ const copy = {
     trustTitle: "Vendors focus on sales. NFCtron backs payments and support.",
     trustBody:
       "When an event runs on NFCtron, every payment follows a clear path through settlement. Vendors see their revenue, have communication support and know what is happening before, during and after the event.",
-    stat: "1,500",
-    statLabel: "vendors we can operate with across events",
+    stat: "1,150",
+    statLabel: "vendors use the NFCtron system every season",
     trustItems: [
       ["Revenue you can rely on", "Payments run through NFCtron and vendors see their revenue and operating data clearly in NFCtron Hub."],
       ["Clear settlement", "Every step from the last sale to final documents has a clear owner."],
@@ -120,12 +128,28 @@ export default function RetailerHome({ locale }: { locale: Locale }) {
       title={c.title}
       description={c.description}
       actions={
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="#active-events" className={primaryButton}>
-            {c.vendorAction} <span aria-hidden>→</span>
+        <div className="mx-auto mt-8 grid w-full max-w-2xl gap-3 text-left sm:grid-cols-2">
+          <a
+            href="#active-events"
+            className="group flex min-h-[92px] items-center justify-between gap-5 rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md hover:shadow-primary-900/5"
+          >
+            <span>
+              <span className="block text-[9px] font-semibold uppercase tracking-[0.15em] text-blue-700">{c.vendorRouteLabel}</span>
+              <span className="mt-1.5 block text-sm font-semibold text-primary-800">{c.vendorAction}</span>
+              <span className="mt-1 block text-[11px] leading-4 text-gray-500">{c.vendorRouteBody}</span>
+            </span>
+            <span aria-hidden className="shrink-0 text-primary-700 transition group-hover:translate-x-1">→</span>
           </a>
-          <a href="#partner" className={secondaryButton}>
-            {c.organizerAction}
+          <a
+            href="#partner"
+            className="group flex min-h-[92px] items-center justify-between gap-5 rounded-2xl border border-gray-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md hover:shadow-primary-900/5"
+          >
+            <span>
+              <span className="block text-[9px] font-semibold uppercase tracking-[0.15em] text-blue-700">{c.organizerRouteLabel}</span>
+              <span className="mt-1.5 block text-sm font-semibold text-primary-800">{c.organizerAction}</span>
+              <span className="mt-1 block text-[11px] leading-4 text-gray-500">{c.organizerRouteBody}</span>
+            </span>
+            <span aria-hidden className="shrink-0 text-primary-700 transition group-hover:translate-x-1">→</span>
           </a>
         </div>
       }

@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
         : "Solutions for event vendors | NFCtron",
     description:
       locale === "cs"
-        ? "NFCtron propojuje pořadatele s prodejci, pomáhá stavět celý gastro provoz a zajišťuje platby, vyúčtování i podporu pro 1 500 prodejců."
-        : "NFCtron connects organizers with vendors, helps build complete gastro operations and supports payments, settlement and operations for 1,500 vendors.",
+        ? "NFCtron propojuje pořadatele s prodejci, pomáhá stavět celý gastro provoz a zajišťuje platby, vyúčtování i podporu. Systém NFCtron využívá každou sezonu 1 150 prodejců."
+        : "NFCtron connects organizers with vendors, helps build complete gastro operations and supports payments, settlement and operations. Every season, 1,150 vendors use the NFCtron system.",
     ogLabel: locale === "cs" ? "Pro prodejce" : "For vendors",
   });
 }

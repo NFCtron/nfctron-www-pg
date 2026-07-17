@@ -50,10 +50,13 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
               href="/cards"
               className="inline-flex items-center gap-2 transition hover:text-white"
             >
-              {t("Karty")}
+              {t("NFCtron Card")}
               <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[7px] font-semibold uppercase tracking-[0.08em] text-white/55">
                 Beta
               </span>
+            </Link>
+            <Link href="/production" className={footerLinkClass}>
+              {t("Produkce")}
             </Link>
           </FooterColumn>
 

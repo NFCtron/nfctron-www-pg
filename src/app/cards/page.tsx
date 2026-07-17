@@ -11,13 +11,13 @@ export async function generateMetadata(): Promise<Metadata> {
     path: "/cards",
     title:
       locale === "cs"
-        ? "NFCtron Card Beta | Karta pro zážitky na akcích"
-        : "NFCtron Card Beta | The card for event experiences",
+        ? "NFCtron Card | Karta pro zážitky na akcích"
+        : "NFCtron Card | The card for event experiences",
     description:
       locale === "cs"
         ? "NFCtron Card propojuje bezpečné platby, refundace a výhody akcí i interpretů. Objevte artist edition Elizabeth Kopecké a festival edition Vysočina Fest 2027."
         : "NFCtron Card connects secure payments, refunds and benefits from events and artists. Discover the Elizabeth Kopecká and Vysočina Fest 2027 editions.",
-    ogLabel: "NFCtron Card · Beta",
+    ogLabel: "NFCtron Card",
   });
 }
 

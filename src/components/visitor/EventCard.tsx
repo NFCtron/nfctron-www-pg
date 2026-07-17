@@ -19,6 +19,31 @@ function getMapUrl(event: EventItem) {
   return `https://www.google.com/maps/search/?${new URLSearchParams({ api: "1", query: `${event.place}, ${event.city}` }).toString()}`;
 }
 
+const monthLabels = [
+  "",
+  "LED",
+  "ÚNO",
+  "BŘE",
+  "DUB",
+  "KVĚ",
+  "ČVN",
+  "ČVC",
+  "SRP",
+  "ZÁŘ",
+  "ŘÍJ",
+  "LIS",
+  "PRO",
+] as const;
+
+function getDateBadge(event: EventItem, t: Translator) {
+  if (!event.calendarStart) return null;
+  const month = Number(event.calendarStart.slice(4, 6));
+  const day = Number(event.calendarStart.slice(6, 8));
+  const monthLabel = monthLabels[month];
+  if (!monthLabel || !day) return null;
+  return { month: t(monthLabel), day };
+}
+
 export default function EventCard({
   event,
   t,
@@ -31,13 +56,14 @@ export default function EventCard({
   const eventUrl = event.url ?? `/events/${event.id}`;
   const calendarUrl = getCalendarUrl(event);
   const mapUrl = getMapUrl(event);
+  const dateBadge = getDateBadge(event, t);
 
   return (
     <article className="group min-w-0 overflow-hidden rounded-xl border border-black/5 bg-white transition duration-300 hover:border-primary-200 hover:shadow-md hover:shadow-primary-900/5">
       <Link
         href={eventUrl}
         className="block"
-        aria-label={`Otevřít ${event.title}`}
+        aria-label={`${t("Otevřít")} ${event.title}`}
       >
         <div
           className={`relative overflow-hidden bg-gradient-to-br ${large ? "h-60 sm:h-64" : "aspect-[16/8]"} ${event.accent}`}
@@ -141,18 +167,16 @@ export default function EventCard({
             </Link>
           </div>
         ) : null}
-        <span className="absolute right-4 top-4 overflow-hidden rounded-md border border-gray-200 bg-gray-50 text-center">
-          <b className="block bg-primary-700 px-2 py-0.5 text-[9px] uppercase text-white">
-            {event.date.startsWith("30. července")
-              ? "ČVC"
-              : event.date.includes("srpna")
-                ? "SRP"
-                : "ČVC"}
-          </b>
-          <span className="block px-2 py-1 text-sm font-semibold text-gray-600">
-            {event.date.match(/\d+/)?.[0]}
+        {dateBadge ? (
+          <span className="absolute right-4 top-4 overflow-hidden rounded-md border border-gray-200 bg-gray-50 text-center">
+            <b className="block bg-primary-700 px-2 py-0.5 text-[9px] uppercase text-white">
+              {dateBadge.month}
+            </b>
+            <span className="block px-2 py-1 text-sm font-semibold text-gray-600">
+              {dateBadge.day}
+            </span>
           </span>
-        </span>
+        ) : null}
       </div>
     </article>
   );

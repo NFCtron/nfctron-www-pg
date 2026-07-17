@@ -12,6 +12,7 @@ export interface IndexableRoute {
 export const INDEXABLE_ROUTES: IndexableRoute[] = [
   { path: "/", changeFrequency: "daily", priority: 1 },
   { path: "/for-organizers", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/production", changeFrequency: "weekly", priority: 0.8 },
   { path: "/for-retailers", changeFrequency: "monthly", priority: 0.6 },
   { path: "/for-artists", changeFrequency: "monthly", priority: 0.6 },
   { path: "/music", changeFrequency: "weekly", priority: 0.7 },

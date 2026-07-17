@@ -294,8 +294,9 @@ export default function CardsHome({ locale }: { locale: Locale }) {
         <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto grid max-w-[1120px] items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
             <div className="max-w-xl">
-              <span className="inline-flex rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.12em] text-primary-700">
-                NFCtron Card · Beta
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium tracking-[0.08em] text-primary-700">
+                <span className="uppercase">NFCtron Card</span>
+                <span className="rounded-full bg-white px-1.5 py-0.5 text-[7px] font-semibold uppercase tracking-[0.08em] text-primary-400">Beta</span>
               </span>
               <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
                 {copy.eyebrow}

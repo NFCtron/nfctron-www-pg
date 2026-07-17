@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import ActionLink from "@/components/ui/ActionLink";
+import { AudienceHeroSection } from "@/components/audience/AudiencePage";
 import type { Locale } from "@/i18n/config";
 
 const releases = [
@@ -131,24 +132,14 @@ export default function MusicHome({ locale }: { locale: Locale }) {
     <div className="min-h-screen bg-white text-primary-900">
       <SiteHeader locale={locale} active="music" />
       <main>
-        <section className="px-5 py-16 text-center sm:px-8 sm:py-20 lg:px-12">
-          <div className="mx-auto max-w-[1120px]">
-            <span className="inline-flex rounded-full bg-primary-50 px-4 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-primary-700">
-              {t.badge}
-            </span>
-            <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-700">
-              {t.eyebrow}
-            </p>
-            <h1 className="mx-auto mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] tracking-[-0.06em] sm:text-6xl lg:text-7xl">
-              {t.title}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
-              {t.description}
-            </p>
-          </div>
-        </section>
+        <AudienceHeroSection
+          badge={t.badge}
+          eyebrow={t.eyebrow}
+          title={t.title}
+          description={t.description}
+        />
 
-        <section className="bg-[#080b3f] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-12">
+        <section className="bg-[#080b3f] px-5 py-14 text-white sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto grid max-w-[1120px] overflow-hidden rounded-[28px] bg-white/[0.055] lg:grid-cols-[1.08fr_0.92fr]">
             <div className="relative min-h-[390px] sm:min-h-[500px]">
               <Image
@@ -189,7 +180,7 @@ export default function MusicHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+        <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto grid max-w-[1120px] items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <div className="max-w-lg">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
@@ -242,7 +233,7 @@ export default function MusicHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="bg-[#f8f8fb] px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+        <section className="bg-[#f8f8fb] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-[1120px]">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
               {t.catalogueEyebrow}
@@ -290,7 +281,7 @@ export default function MusicHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+        <section className="bg-white px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto grid max-w-[1120px] items-start gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-24">
             <div className="max-w-xl">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">

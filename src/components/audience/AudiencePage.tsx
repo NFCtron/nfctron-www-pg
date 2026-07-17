@@ -27,17 +27,17 @@ export function AudienceHero({
   "badge" | "eyebrow" | "title" | "description" | "actions"
 >) {
   return (
-    <div className="mx-auto max-w-3xl text-center">
+    <div className="mx-auto flex w-full max-w-[920px] flex-col items-center text-center">
       <span className="inline-flex rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium uppercase tracking-[0.12em] text-primary-700">
         {badge}
       </span>
       <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
         {eyebrow}
       </p>
-      <h1 className="mt-4 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl">
+      <h1 className="mt-4 max-w-[900px] text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-6xl">
         {title}
       </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
+      <p className="mx-auto mt-5 max-w-[700px] text-sm leading-7 text-gray-500 sm:mt-6 sm:text-base">
         {description}
       </p>
       {actions}
@@ -56,7 +56,7 @@ export function AudienceHeroSection({
   "badge" | "eyebrow" | "title" | "description" | "actions"
 >) {
   return (
-    <section className="min-h-[482px] px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[504px] lg:px-12 lg:py-20">
+    <section className="flex min-h-[460px] items-center px-5 py-14 sm:h-[490px] sm:min-h-0 sm:px-8 sm:py-16 lg:h-[504px] lg:px-12 lg:py-20">
       <div className="mx-auto w-full max-w-[1120px]">
         <AudienceHero
           badge={badge}

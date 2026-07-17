@@ -37,10 +37,12 @@ const releases = [
 const copy = {
   cs: {
     badge: "NFCtron Music",
-    eyebrow: "NFCtron Music · ze studia do celého světa",
+    eyebrow: "Ze studia do celého světa",
     title: "Tvoříme hudbu, která nemá hranice.",
     description:
       "Od prvního nápadu po světový release. Stavíme zvuk, vizuál, distribuci i živý zážitek tak, aby česká hudba obstála kdekoliv na světě.",
+    heroPrimaryCta: "Poslechnout releasy",
+    heroSecondaryCta: "Chci vydat hudbu",
     milestoneEyebrow: "Nová kapitola je nahraná",
     milestoneTitle: "Světová produkce. Česká interpretka. Bez hranic.",
     milestoneDescription:
@@ -81,10 +83,12 @@ const copy = {
   },
   en: {
     badge: "NFCtron Music",
-    eyebrow: "NFCtron Music · from the studio to the world",
+    eyebrow: "From the studio to the world",
     title: "We make music without borders.",
     description:
       "From the first idea to a global release. We build sound, visuals, distribution and live experiences so Czech music can stand confidently anywhere in the world.",
+    heroPrimaryCta: "Hear the releases",
+    heroSecondaryCta: "Release my music",
     milestoneEyebrow: "The next chapter is recorded",
     milestoneTitle: "World-class production. One artist. No borders.",
     milestoneDescription:
@@ -138,6 +142,16 @@ export default function MusicHome({ locale }: { locale: Locale }) {
           eyebrow={t.eyebrow}
           title={t.title}
           description={t.description}
+          actions={
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <ActionLink href="#releases" arrow>
+                {t.heroPrimaryCta}
+              </ActionLink>
+              <ActionLink href="#distribution" variant="secondary">
+                {t.heroSecondaryCta}
+              </ActionLink>
+            </div>
+          }
         />
 
         <section className="bg-[#f8f8fb] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
@@ -183,7 +197,10 @@ export default function MusicHome({ locale }: { locale: Locale }) {
 
         <MusicPurchase locale={locale} />
 
-        <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+        <section
+          id="releases"
+          className="scroll-mt-20 px-5 py-14 sm:px-8 sm:py-20 lg:px-12"
+        >
           <div className="mx-auto grid max-w-[1120px] items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
             <div className="max-w-lg">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
@@ -284,7 +301,10 @@ export default function MusicHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="bg-white px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+        <section
+          id="distribution"
+          className="scroll-mt-20 bg-white px-5 py-14 sm:px-8 sm:py-20 lg:px-12"
+        >
           <div className="mx-auto grid max-w-[1120px] items-start gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-24">
             <div className="max-w-xl">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">

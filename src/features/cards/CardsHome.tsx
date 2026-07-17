@@ -2,6 +2,7 @@ import Image from "next/image";
 import ActionLink from "@/components/ui/ActionLink";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { AudienceHeroSection } from "@/components/audience/AudiencePage";
 import type { Locale } from "@/i18n/config";
 import EditionCard from "./EditionCard";
 
@@ -50,10 +51,11 @@ const content = {
       "Kartu si zdarma aktivujete pro jednu oblíbenou akci. Tím získáte přístup k výhodám, speciálním dokupům a nabídkám určeným pouze držitelům NFCtron Card.",
     activationCta: "Vybrat oblíbenou akci",
     activationItems: [
-      ["01", "Jedna akce zdarma", "První aktivaci karty pro vybranou akci získáte bez poplatku."],
-      ["02", "Speciální dokupy", "Odemknete služby a doplňky ke vstupence dostupné jen držitelům karty."],
-      ["03", "Výhody vaší akce", "Pořadatel může přidat vlastní nabídky před akcí i přímo na místě."],
+      ["01", "Zvolím si akci nebo interpreta", "Kartu propojíte s tím, co máte rádi a chcete sledovat."],
+      ["02", "Aktivuji kartu zdarma", "První aktivaci pro vybranou akci nebo interpreta získáte bez poplatku."],
+      ["03", "Odemknu si více", "Karta zpřístupní vstupenky, dokupy, refundace a další výhody."],
     ],
+    termsLink: "Přesné podmínky karty a refundací",
     artistEyebrow: "Artist edition",
     artistTitle: "Karta, která odemkne svět Elizabeth Kopecké.",
     artistDescription:
@@ -126,10 +128,11 @@ const content = {
       "Activate your card for one favourite event free of charge. Unlock benefits, special ticket add-ons and offers available only to NFCtron Card holders.",
     activationCta: "Choose your favourite event",
     activationItems: [
-      ["01", "One event included", "Your first card activation for a selected event is free."],
-      ["02", "Exclusive add-ons", "Unlock ticket services and extras available only to cardholders."],
-      ["03", "Event-specific benefits", "Organizers can add their own offers before and during the event."],
+      ["01", "Choose an event or artist", "Connect the card with what you love and want to follow."],
+      ["02", "Activate the card free", "Your first activation for a selected event or artist is included."],
+      ["03", "Unlock more", "Access tickets, add-ons, refunds and more cardholder benefits."],
     ],
+    termsLink: "Full card and refund terms",
     artistEyebrow: "Artist edition",
     artistTitle: "A card that unlocks Elizabeth Kopecká's world.",
     artistDescription:
@@ -291,34 +294,22 @@ export default function CardsHome({ locale }: { locale: Locale }) {
     <div className="min-h-screen bg-white text-primary-900">
       <SiteHeader locale={locale} active="cards" />
       <main>
-        <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
-          <div className="mx-auto grid max-w-[1120px] items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
-            <div className="max-w-xl">
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary-50 px-3 py-1.5 text-[9px] font-medium tracking-[0.08em] text-primary-700">
-                <span className="uppercase">NFCtron Card</span>
-                <span className="rounded-full bg-white px-1.5 py-0.5 text-[7px] font-semibold uppercase tracking-[0.08em] text-primary-400">Beta</span>
-              </span>
-              <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700">
-                {copy.eyebrow}
-              </p>
-              <h1 className="mt-4 text-5xl font-semibold leading-[1.02] tracking-[-0.055em] sm:text-6xl">
-                {copy.title}
-              </h1>
-              <p className="mt-6 max-w-lg text-sm leading-7 text-gray-500 sm:text-base">
-                {copy.description}
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <ActionLink href="https://pass.nfctron.com" arrow>
-                  {copy.primaryCta}
-                </ActionLink>
-                <ActionLink href="#features" variant="secondary">
-                  {copy.secondaryCta}
-                </ActionLink>
-              </div>
+        <AudienceHeroSection
+          badge="NFCtron Card · Beta"
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          description={copy.description}
+          actions={
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <ActionLink href="https://pass.nfctron.com" arrow>
+                {copy.primaryCta}
+              </ActionLink>
+              <ActionLink href="#how-it-works" variant="secondary">
+                {copy.secondaryCta}
+              </ActionLink>
             </div>
-            <CardPreview locale={locale} />
-          </div>
-        </section>
+          }
+        />
 
         <section
           id="artist-edition"
@@ -390,6 +381,45 @@ export default function CardsHome({ locale }: { locale: Locale }) {
         </section>
 
         <section
+          id="how-it-works"
+          className="scroll-mt-20 bg-[#f8f8fb] px-5 py-16 sm:px-8 sm:py-20 lg:px-12"
+        >
+          <div className="mx-auto max-w-[1120px] rounded-[28px] bg-white px-6 py-10 shadow-[0_18px_50px_rgba(8,11,63,0.045)] sm:px-10 sm:py-14 lg:px-14">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
+                {copy.activationEyebrow}
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl">
+                {copy.activationTitle}
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-500">
+                {copy.activationDescription}
+              </p>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-3 md:gap-7">
+              {copy.activationItems.map(([number, title, description]) => (
+                <article key={number} className="rounded-2xl bg-primary-50 p-6 sm:p-7">
+                  <span className="text-[9px] font-semibold text-primary-500">{number}</span>
+                  <h3 className="mt-5 text-base font-semibold tracking-[-0.025em]">{title}</h3>
+                  <p className="mt-2 text-xs leading-6 text-gray-500">{description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-center">
+              <ActionLink href="https://pass.nfctron.com" arrow>
+                {copy.activationCta}
+              </ActionLink>
+              <a
+                href={`https://support.nfctron.com/${locale === "cs" ? "cs" : "en"}/podminky-a-informace`}
+                className="text-[10px] text-gray-500 underline decoration-gray-300 underline-offset-4 transition hover:text-primary-700"
+              >
+                {copy.termsLink}
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section
           id="features"
           className="scroll-mt-20 bg-[#f8f8fb] px-5 py-16 sm:px-8 sm:py-20 lg:px-12"
         >
@@ -405,11 +435,11 @@ export default function CardsHome({ locale }: { locale: Locale }) {
                 {copy.sectionDescription}
               </p>
             </div>
-            <div className="divide-y divide-gray-200 border-y border-gray-200">
+            <div className="space-y-3">
               {copy.features.map(([number, title, description]) => (
                 <article
                   key={number}
-                  className="grid gap-3 py-6 sm:grid-cols-[42px_1fr] sm:gap-5"
+                  className="grid gap-3 rounded-2xl bg-white px-5 py-5 shadow-[0_12px_35px_rgba(8,11,63,0.045)] sm:grid-cols-[42px_1fr] sm:gap-5 sm:px-6"
                 >
                   <span className="pt-1 text-[9px] font-semibold text-primary-500">
                     {number}
@@ -428,40 +458,9 @@ export default function CardsHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
-          <div className="mx-auto max-w-[1120px] rounded-[28px] bg-primary-50 px-6 py-10 sm:px-10 sm:py-14 lg:px-14">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
-                {copy.activationEyebrow}
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl lg:text-5xl">
-                {copy.activationTitle}
-              </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-500">
-                {copy.activationDescription}
-              </p>
-              <div className="mt-7 flex justify-center">
-                <ActionLink href="https://pass.nfctron.com" arrow>
-                  {copy.activationCta}
-                </ActionLink>
-              </div>
-            </div>
-
-            <div className="mt-10 grid gap-7 border-t border-primary-100 pt-8 md:grid-cols-3 md:gap-10">
-              {copy.activationItems.map(([number, title, description]) => (
-                <article key={number}>
-                  <span className="text-[9px] font-semibold text-primary-500">
-                    {number}
-                  </span>
-                  <h3 className="mt-4 text-base font-semibold tracking-[-0.025em]">
-                    {title}
-                  </h3>
-                  <p className="mt-2 text-xs leading-6 text-gray-500">
-                    {description}
-                  </p>
-                </article>
-              ))}
-            </div>
+        <section className="bg-white px-5 py-14 sm:px-8 sm:py-16 lg:px-12">
+          <div className="mx-auto max-w-[880px]">
+            <CardPreview locale={locale} />
           </div>
         </section>
 
@@ -481,11 +480,11 @@ export default function CardsHome({ locale }: { locale: Locale }) {
                 {copy.betaNote}
               </p>
             </div>
-            <div className="divide-y divide-gray-200 border-y border-gray-200">
+            <div className="space-y-3">
               {copy.benefits.map(([title, description], index) => (
                 <article
                   key={title}
-                  className="group grid gap-3 py-5 sm:grid-cols-[42px_1fr] sm:gap-5 sm:py-6"
+                  className="group grid gap-3 rounded-2xl bg-[#f8f8fb] px-5 py-5 transition hover:bg-primary-50 sm:grid-cols-[42px_1fr] sm:gap-5 sm:px-6"
                 >
                   <span className="pt-1 text-[9px] font-semibold text-primary-500">
                     {String(index + 1).padStart(2, "0")}

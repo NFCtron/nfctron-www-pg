@@ -1,30 +1,29 @@
-import Image from "next/image";
 import Link from "next/link";
+import EditionCard from "@/features/cards/EditionCard";
 import { ArrowIcon } from "./icons";
 import type { Translator } from "./types";
 
 const accountFeatures = [
-  "Všechny vstupenky po ruce",
-  "Přehled plateb na akci",
-  "Vrácení kreditu online",
-  "Upozornění a novinky",
+  "Bezpečný nákup vstupenek",
+  "Vrácení peněz zpět na kartu",
+  "Výhody od akcí a interpretů",
 ];
 
 export function AccountSection({ t }: { t: Translator }) {
   return (
-    <section className="section bg-[#daebfa]" id="all-events">
+    <section className="section bg-[#eef4ff]" id="all-events">
       <div className="container-fluid">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16">
-          <div className="lg:w-[42%]">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.76fr_1.24fr] lg:gap-16">
+          <div className="max-w-xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[.16em] text-primary-600">
-              {t("NFCtron účet")}
+              {t("NFCtron Card pro návštěvníky")}
             </p>
             <h2 className="section-title">
-              {t("Celý zážitek na jednom místě.")}
+              {t("Jedna karta. Více zážitků.")}
             </h2>
             <p className="max-w-lg text-sm leading-relaxed text-gray-500 sm:text-base">
               {t(
-                "Vstupenky, platby a vrácení kreditu máte v jednom účtu. Bez hledání účtenek a formulářů.",
+                "Bezpečně s ní koupíte vstupenky, získáte peníze zpět na kartu a odemknete výhody své oblíbené akce nebo interpreta.",
               )}
             </p>
             <ul className="mt-7 space-y-3">
@@ -39,56 +38,35 @@ export function AccountSection({ t }: { t: Translator }) {
                 </li>
               ))}
             </ul>
-            <Link href="https://pass.nfctron.com" className="btn-primary mt-7">
-              {t("Otevřít můj NFCtron účet")} <ArrowIcon />
+            <Link href="/cards" className="btn-primary mt-7">
+              {t("Objevit NFCtron Card")} <ArrowIcon />
             </Link>
           </div>
-          <div className="min-w-0 flex-1">
-            <AccountPreview />
+          <div className="grid min-w-0 gap-5 sm:grid-cols-2">
+            <EditionCard
+              edition={t("Artist edition")}
+              benefit={t("Blíž k Elizabeth a jejím novým zážitkům.")}
+              image="/artists/elizabeth/portrait.jpg"
+              imageAlt="Elizabeth Kopecká"
+              imagePosition="object-[70%_25%]"
+              number="2026"
+              size="compact"
+            />
+            <EditionCard
+              edition={t("Festival edition")}
+              benefit={t("Vysočina Fest 2027 s výhodami pro držitele.")}
+              image="/events/vysocina-fest/hero-2027.jpg"
+              imageAlt="Vysočina Fest 2027"
+              logo="/events/vysocina-fest/logo-2027.png"
+              logoAlt="Vysočina Fest 2027"
+              number="2027"
+              tone="festival"
+              size="compact"
+            />
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function AccountPreview() {
-  return (
-    <div className="rounded-xl bg-primary-700 p-6 text-white shadow-md shadow-primary-900/10 sm:p-8">
-      <div className="flex items-center justify-between border-b border-white/10 pb-5">
-        <Image
-          src="/nfctron-logo-white.svg"
-          alt="NFCtron"
-          width={106}
-          height={20}
-        />
-        <span className="rounded bg-white/10 px-2 py-1 text-[10px] text-white/70">
-          Mobilní aplikace
-        </span>
-      </div>
-      <div className="grid gap-3 py-6 sm:grid-cols-2">
-        <div className="rounded-xl bg-white p-5 text-gray-900">
-          <p className="text-xs text-gray-400">Moje vstupenky</p>
-          <p className="mt-2 text-2xl font-bold">4 aktivní</p>
-          <div className="mt-5 h-2 rounded bg-primary-100">
-            <div className="h-full w-3/4 rounded bg-primary-500" />
-          </div>
-        </div>
-        <div className="rounded-xl bg-primary-600 p-5">
-          <p className="text-xs text-white/60">Kredit k vrácení</p>
-          <p className="mt-2 text-2xl font-bold">1 240 Kč</p>
-          <button className="mt-5 rounded-full bg-white px-3 py-2 text-[11px] font-semibold text-primary-900">
-            Vrátit kredit
-          </button>
-        </div>
-      </div>
-      <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-        <p className="text-sm font-semibold">LET IT ROLL 2026</p>
-        <p className="mt-1 text-xs text-white/50">
-          Vstupenka připravena · QR kód v aplikaci
-        </p>
-      </div>
-    </div>
   );
 }
 

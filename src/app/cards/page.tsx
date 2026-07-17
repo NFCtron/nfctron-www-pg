@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
         : "NFCtron Card Beta | The card for event experiences",
     description:
       locale === "cs"
-        ? "Poznejte NFCtron Card — připravovanou virtuální kartu propojenou s NFCtron ID, zůstatkem a přehledem transakcí."
-        : "Meet NFCtron Card — an upcoming virtual card connected to your NFCtron ID, balance and transaction history.",
+        ? "NFCtron Card propojuje bezpečné platby, refundace a výhody akcí i interpretů. Objevte artist edition Elizabeth Kopecké a festival edition Vysočina Fest 2027."
+        : "NFCtron Card connects secure payments, refunds and benefits from events and artists. Discover the Elizabeth Kopecká and Vysočina Fest 2027 editions.",
     ogLabel: "NFCtron Card · Beta",
   });
 }

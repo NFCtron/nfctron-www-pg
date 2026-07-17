@@ -4,6 +4,7 @@ import ActionLink from "@/components/ui/ActionLink";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import type { Locale } from "@/i18n/config";
+import EditionCard from "@/features/cards/EditionCard";
 import BookingEnquiryForm from "../home/BookingEnquiryForm";
 import { localize, type ArtistProfileConfig } from "./types";
 
@@ -60,6 +61,48 @@ export default function ArtistProfile({
             </div>
           </div>
         </section>
+
+        {profile.slug === "elizabeth-kopecka" ? (
+          <section
+            id="artist-card"
+            className="scroll-mt-20 px-5 py-14 sm:px-8 sm:py-20 lg:px-12"
+          >
+            <div className="mx-auto grid max-w-[1120px] items-center gap-12 rounded-[28px] bg-[#f8f8fb] px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20 lg:px-14">
+              <EditionCard
+                edition="Elizabeth Kopecká edition"
+                benefit={
+                  locale === "cs"
+                    ? "První přístup ke vstupenkám"
+                    : "First access to tickets"
+                }
+                image="/artists/elizabeth/portrait.jpg"
+                imageAlt="Elizabeth Kopecká"
+                imagePosition="object-[70%_25%]"
+                number="2026"
+              />
+              <div className="max-w-xl">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
+                  Artist edition · NFCtron Card
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl">
+                  {locale === "cs"
+                    ? "Karta, která vás pustí do světa Elizabeth dřív."
+                    : "The card that gets you into Elizabeth's world first."}
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-gray-500">
+                  {locale === "cs"
+                    ? "Propojte svou NFCtron Card s Elizabeth. Až oznámí vlastní koncert, její držitelé mohou získat první přístup ke vstupenkám, hudbě a dalším zážitkům."
+                    : "Connect your NFCtron Card with Elizabeth. When she announces her own show, cardholders may receive first access to tickets, music and more experiences."}
+                </p>
+                <div className="mt-7">
+                  <ActionLink href="/cards#artist-edition" arrow>
+                    {locale === "cs" ? "Objevit kartu" : "Discover the card"}
+                  </ActionLink>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-[1120px]">

@@ -352,6 +352,20 @@ const en: Record<string, string> = {
   "Vrácení kreditu online": "Online credit refunds",
   "Upozornění a novinky": "Alerts and updates",
   "Otevřít můj NFCtron účet": "Open my NFCtron account",
+  "NFCtron Card pro návštěvníky": "NFCtron Card for visitors",
+  "Jedna karta. Více zážitků.": "One card. More experiences.",
+  "Bezpečně s ní koupíte vstupenky, získáte peníze zpět na kartu a odemknete výhody své oblíbené akce nebo interpreta.":
+    "Use it to buy tickets securely, receive refunds back to the card and unlock benefits from your favourite event or artist.",
+  "Bezpečný nákup vstupenek": "Secure ticket purchases",
+  "Vrácení peněz zpět na kartu": "Refunds returned to the card",
+  "Výhody od akcí a interpretů": "Benefits from events and artists",
+  "Objevit NFCtron Card": "Discover NFCtron Card",
+  "Artist edition": "Artist edition",
+  "Blíž k Elizabeth a jejím novým zážitkům.":
+    "Get closer to Elizabeth and her new experiences.",
+  "Festival edition": "Festival edition",
+  "Vysočina Fest 2027 s výhodami pro držitele.":
+    "Vysočina Fest 2027 with benefits for cardholders.",
   "Mobilní aplikace": "Mobile app",
   "Moje vstupenky": "My tickets",
   "4 aktivní": "4 active",

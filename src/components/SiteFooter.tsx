@@ -43,6 +43,9 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
             <Link href="/for-artists" className={footerLinkClass}>
               {t("Interpreti")}
             </Link>
+            <Link href="/music" className={footerLinkClass}>
+              {t("Hudba")}
+            </Link>
             <Link
               href="/cards"
               className="inline-flex items-center gap-2 transition hover:text-white"

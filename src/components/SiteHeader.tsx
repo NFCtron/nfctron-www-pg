@@ -3,7 +3,13 @@ import Link from "next/link";
 import LanguageMenu from "./LanguageMenu";
 import { translate, type Locale } from "@/i18n/config";
 
-type SiteMode = "home" | "organizers" | "retailers" | "artists" | "cards";
+type SiteMode =
+  | "home"
+  | "organizers"
+  | "retailers"
+  | "artists"
+  | "music"
+  | "cards";
 
 interface SiteHeaderProps {
   locale: Locale;
@@ -20,6 +26,7 @@ const MODES: Array<{
   { id: "organizers", label: "Pořadatelé", href: "/for-organizers" },
   { id: "retailers", label: "Prodejci", href: "/for-retailers" },
   { id: "artists", label: "Interpreti", href: "/for-artists" },
+  { id: "music", label: "Hudba", href: "/music" },
   { id: "cards", label: "Karty", href: "/cards", beta: true },
 ];
 
@@ -67,7 +74,7 @@ function DesktopModeSwitcher({
 }) {
   return (
     <div
-      className="hidden h-8 items-center rounded-full bg-gray-100 p-0.5 sm:flex"
+      className="hidden h-8 items-center rounded-full bg-gray-100 p-0.5 lg:flex"
       aria-label={t("Zobrazení webu")}
     >
       {MODES.map((mode) => (
@@ -99,7 +106,7 @@ function MobileModeSwitcher({
   const activeMode = MODES.find((mode) => mode.id === active) ?? MODES[0];
 
   return (
-    <details className="relative sm:hidden">
+    <details className="relative lg:hidden">
       <summary className="flex h-7 cursor-pointer list-none items-center gap-1.5 whitespace-nowrap rounded-full bg-gray-100 px-2.5 text-[8px] font-medium leading-none text-gray-600 [&::-webkit-details-marker]:hidden">
         <span>{t(activeMode.label)}</span>
         <span className="flex items-center justify-center text-gray-400">
@@ -136,10 +143,10 @@ export default function SiteHeader({
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200/80 bg-white/95 backdrop-blur-md">
       <nav
-        className="container-fluid flex h-16 items-center justify-between gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:gap-5"
+        className="container-fluid flex h-16 items-center justify-between gap-3 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-5"
         aria-label={t("Hlavní navigace")}
       >
-        <div className="flex min-w-0 shrink-0 items-center sm:justify-self-start">
+        <div className="flex min-w-0 shrink-0 items-center lg:justify-self-start">
           <Link href="/" aria-label="NFCtron domů" className="shrink-0">
             <Image
               src="/nfctron-logo-dark.svg"
@@ -153,7 +160,7 @@ export default function SiteHeader({
 
         <DesktopModeSwitcher active={active} t={t} />
 
-        <div className="flex shrink-0 items-center gap-0.5 sm:justify-self-end sm:gap-1">
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-1 lg:justify-self-end">
           <MobileModeSwitcher active={active} t={t} />
           <LanguageMenu locale={locale} />
           <Link

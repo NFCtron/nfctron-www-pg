@@ -14,6 +14,19 @@ export interface ArtistEvent {
   status: LocalizedText;
 }
 
+export interface ArtistSocialLink {
+  label: string;
+  href: string;
+  platform:
+    | "spotify"
+    | "appleMusic"
+    | "instagram"
+    | "youtube"
+    | "tiktok"
+    | "facebook"
+    | "website";
+}
+
 export interface ArtistProfileConfig {
   slug: string;
   name: string;
@@ -25,6 +38,7 @@ export interface ArtistProfileConfig {
   heroPosition?: string;
   showPosition?: string;
   bookingEmail: string;
+  socialLinks?: ArtistSocialLink[];
   bioEyebrow: LocalizedText;
   bioTitle: LocalizedText;
   bio: LocalizedText[];

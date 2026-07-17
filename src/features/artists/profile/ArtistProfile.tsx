@@ -6,6 +6,7 @@ import SiteHeader from "@/components/SiteHeader";
 import type { Locale } from "@/i18n/config";
 import EditionCard from "@/features/cards/EditionCard";
 import BookingEnquiryForm from "../home/BookingEnquiryForm";
+import ArtistSocialLinks from "./ArtistSocialLinks";
 import { localize, type ArtistProfileConfig } from "./types";
 
 export default function ArtistProfile({
@@ -62,10 +63,18 @@ export default function ArtistProfile({
           </div>
         </section>
 
+        {profile.socialLinks?.length ? (
+          <ArtistSocialLinks
+            artistName={profile.name}
+            links={profile.socialLinks}
+            locale={locale}
+          />
+        ) : null}
+
         {profile.slug === "elizabeth-kopecka" ? (
           <section
             id="artist-card"
-            className="scroll-mt-20 px-5 py-14 sm:px-8 sm:py-20 lg:px-12"
+            className="scroll-mt-20 px-5 pb-14 pt-5 sm:px-8 sm:pb-20 sm:pt-7 lg:px-12"
           >
             <div className="mx-auto grid max-w-[1120px] items-center gap-12 rounded-[28px] bg-[#f8f8fb] px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20 lg:px-14">
               <EditionCard

@@ -13,6 +13,11 @@ export const artistProfiles = {
     portraitImage: "/artists/sebastian/portrait.jpg",
     showImage: "/artists/sebastian/show.jpg",
     bookingEmail: "booking@nfctron.com",
+    socialLinks: [
+      { label: "Spotify", href: "https://open.spotify.com/artist/1ucovYZ0AOZZ0ZIfjhYFfQ", platform: "spotify" },
+      { label: "Instagram", href: "https://www.instagram.com/sebastian_officialni/", platform: "instagram" },
+      { label: "Web", href: "https://www.sebastianmusic.cz/", platform: "website" },
+    ],
     bioEyebrow: localized("Sebastian live", "Sebastian live"),
     bioTitle: localized(
       "Generační výpověď, která naživo dostává nový rozměr.",
@@ -110,6 +115,33 @@ export const artistProfiles = {
     showImage: "/artists/elizabeth/show.jpg",
     heroPosition: "object-[center_28%]",
     bookingEmail: "booking@nfctron.com",
+    socialLinks: [
+      {
+        label: "Spotify",
+        href: "https://open.spotify.com/artist/4bp0VqiC1SbgLXMp1vDcD8",
+        platform: "spotify",
+      },
+      {
+        label: "Apple Music",
+        href: "https://music.apple.com/us/artist/elizabeth-kopecka/1632603907",
+        platform: "appleMusic",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/elizabethkopecka/",
+        platform: "instagram",
+      },
+      {
+        label: "YouTube",
+        href: "https://www.youtube.com/@ELIZABETH-KOPECKA",
+        platform: "youtube",
+      },
+      {
+        label: "TikTok",
+        href: "https://www.tiktok.com/@elizabethkopecka",
+        platform: "tiktok",
+      },
+    ],
     bioEyebrow: localized("Elizabeth live", "Elizabeth live"),
     bioTitle: localized(
       "Silný hlas a osobní písně, které fungují i na velkém pódiu.",
@@ -206,6 +238,13 @@ export const artistProfiles = {
     portraitImage: "/artists/like-it/hero.jpg",
     showImage: "/artists/like-it/show.jpg",
     bookingEmail: "booking@nfctron.com",
+    socialLinks: [
+      { label: "Spotify", href: "https://open.spotify.com/artist/74YFXiSUy88vIxiKAgQehC", platform: "spotify" },
+      { label: "Instagram", href: "https://www.instagram.com/like_it_official/", platform: "instagram" },
+      { label: "YouTube", href: "https://www.youtube.com/channel/UC5VPMK24Rlr2-tTzsZMVx2g", platform: "youtube" },
+      { label: "Facebook", href: "https://www.facebook.com/Like.it.official/", platform: "facebook" },
+      { label: "Web", href: "https://www.like-it.cz/", platform: "website" },
+    ],
     bioEyebrow: localized("Like-It live", "Like-It live"),
     bioTitle: localized(
       "Kapela z Třebíče, která ví, jak rozhýbat klub i festival.",

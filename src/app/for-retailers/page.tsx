@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
         : "Solutions for event vendors | NFCtron",
     description:
       locale === "cs"
-        ? "NFCtron Hub, provozní přehled a připravovaný Marketplace pro prodejce, kteří chtějí mít své podnikání na akcích pod kontrolou."
-        : "NFCtron Hub, operational insights and the upcoming Marketplace for vendors who want full control over their event business.",
+        ? "NFCtron propojuje pořadatele s prodejci, pomáhá stavět celý gastro provoz a zajišťuje platby, vyúčtování i podporu pro 1 500 prodejců."
+        : "NFCtron connects organizers with vendors, helps build complete gastro operations and supports payments, settlement and operations for 1,500 vendors.",
     ogLabel: locale === "cs" ? "Pro prodejce" : "For vendors",
   });
 }

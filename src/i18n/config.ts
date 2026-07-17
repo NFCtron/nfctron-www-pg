@@ -31,7 +31,7 @@ const en: Record<string, string> = {
   "Přepnout na web pro návštěvníky": "Switch to the visitor website",
   "Řešení pro prodejce": "Solutions for vendors",
   "Prodej bez zbytečných překážek.": "Selling without unnecessary friction.",
-  "Připravujeme místo pro vše, co prodejci na akcích potřebují — od NFCtron Hubu po Marketplace.":
+  "Připravujeme místo pro vše, co prodejci na akcích potřebují — od NFCtron Hub po Marketplace.":
     "We are preparing a place for everything event vendors need — from NFCtron Hub to Marketplace.",
   Připravujeme: "In progress",
   "NFCtron Hub pro prodejce": "NFCtron Hub for vendors",
@@ -186,7 +186,7 @@ const en: Record<string, string> = {
   "Platby a provoz akce": "Payments and event operations",
   "Rychlé bezhotovostní placení doplněné technologií a podporou přímo na místě.":
     "Fast cashless payments supported by technology and an on-site team.",
-  "Data v NFCtron Hubu": "Data in NFCtron Hub",
+  "Data v NFCtron Hub": "Data in NFCtron Hub",
   "Prodeje, tržby a provozní data dostupná vašemu týmu v reálném čase.":
     "Sales, revenue and operational data available to your team in real time.",
   "Technologie, které propojují návštěvníky, pořadatele, prodejce a interprety.":

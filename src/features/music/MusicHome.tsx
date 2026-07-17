@@ -5,6 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import ActionLink from "@/components/ui/ActionLink";
 import { AudienceHeroSection } from "@/components/audience/AudiencePage";
 import type { Locale } from "@/i18n/config";
+import MusicPurchase from "./MusicPurchase";
 
 const releases = [
   {
@@ -36,18 +37,18 @@ const releases = [
 const copy = {
   cs: {
     badge: "NFCtron Music",
-    eyebrow: "Hudba bez zbytečných hranic",
-    title: "Tvoříme hudbu. A všechno, co přijde po ní.",
+    eyebrow: "NFCtron Music · ze studia do celého světa",
+    title: "Tvoříme hudbu, která nemá hranice.",
     description:
-      "Od prvního nápadu přes vydání až po fanoušky, koncert a vlastní kartu interpreta. NFCtron propojuje hudbu s celým světem zážitků.",
-    milestoneEyebrow: "Právě vzniká ve Švýcarsku",
-    milestoneTitle: "Nová deska Elizabeth Kopecké vyjde brzy.",
+      "Od prvního nápadu po světový release. Stavíme zvuk, vizuál, distribuci i živý zážitek tak, aby česká hudba obstála kdekoliv na světě.",
+    milestoneEyebrow: "Nová kapitola je nahraná",
+    milestoneTitle: "Světová produkce. Česká interpretka. Bez hranic.",
     milestoneDescription:
-      "Nové skladby, nový zvuk a další kapitola projektu Elizabeth. Sledujte místo, kde budeme postupně odkrývat vše od studia až po pódium.",
+      "Elizabeth se vrátila ze Švýcarska s novým materiálem a zvukem, který obstojí vedle nejlepších světových releasů. NFCtron ho dostane od masteru k posluchačům, videu i pódiu.",
     milestoneCta: "Sledovat Elizabeth",
     cardCta: "Objevit artist edition",
-    releaseEyebrow: "Mezi dvěma kapitolami",
-    releaseTitle: "Jeden singl. Než přijde celá deska.",
+    releaseEyebrow: "Poslechněte si ten posun",
+    releaseTitle: "Jeden singl. Nový světový zvuk už je slyšet.",
     releaseDescription:
       "Tak schválně (Au Au Au) je samostatný release Elizabeth před novou deskou. Pusťte si klip a poznejte interpretku, se kterou stavíme další etapu.",
     video: "Přehrát klip",
@@ -80,18 +81,18 @@ const copy = {
   },
   en: {
     badge: "NFCtron Music",
-    eyebrow: "Music without unnecessary borders",
-    title: "We make music — and everything that comes after.",
+    eyebrow: "NFCtron Music · from the studio to the world",
+    title: "We make music without borders.",
     description:
-      "From the first idea and release to fans, shows and an artist's own card. NFCtron connects music with an entire world of experiences.",
-    milestoneEyebrow: "Now being made in Switzerland",
-    milestoneTitle: "Elizabeth Kopecká's new album is coming soon.",
+      "From the first idea to a global release. We build sound, visuals, distribution and live experiences so Czech music can stand confidently anywhere in the world.",
+    milestoneEyebrow: "The next chapter is recorded",
+    milestoneTitle: "World-class production. One artist. No borders.",
     milestoneDescription:
-      "New songs, a new sound and the next chapter of Elizabeth's project. Follow the place where we will reveal the journey from studio to stage.",
+      "Elizabeth returned from Switzerland with new material and a sound built to stand beside leading international releases. NFCtron takes it from the master to listeners, video and stage.",
     milestoneCta: "Follow Elizabeth",
     cardCta: "Discover artist edition",
-    releaseEyebrow: "Between two chapters",
-    releaseTitle: "One single before the full album arrives.",
+    releaseEyebrow: "Hear the shift",
+    releaseTitle: "One single. The new international sound is already here.",
     releaseDescription:
       "Tak schválně (Au Au Au) is Elizabeth's standalone release before the new album. Watch the video and meet the artist whose next chapter we are building.",
     video: "Play video",
@@ -139,9 +140,9 @@ export default function MusicHome({ locale }: { locale: Locale }) {
           description={t.description}
         />
 
-        <section className="bg-[#080b3f] px-5 py-14 text-white sm:px-8 sm:py-20 lg:px-12">
-          <div className="mx-auto grid max-w-[1120px] overflow-hidden rounded-[28px] bg-white/[0.055] lg:grid-cols-[1.08fr_0.92fr]">
-            <div className="relative min-h-[390px] sm:min-h-[500px]">
+        <section className="bg-[#f8f8fb] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+          <div className="mx-auto grid max-w-[1120px] overflow-hidden rounded-[26px] bg-white shadow-[0_24px_70px_rgba(8,11,63,0.07)] lg:grid-cols-[1.12fr_0.88fr]">
+            <div className="relative min-h-[360px] sm:min-h-[470px]">
               <Image
                 src="/artists/elizabeth/hero.jpg"
                 alt="Elizabeth Kopecká"
@@ -150,28 +151,28 @@ export default function MusicHome({ locale }: { locale: Locale }) {
                 className="object-cover object-[center_30%]"
                 sizes="(max-width: 1024px) 100vw, 620px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080b3f]/45 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-950/20 via-transparent to-transparent" />
             </div>
-            <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8bbcff]">
+            <div className="flex flex-col justify-center p-7 text-primary-900 sm:p-10 lg:p-12">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
                 {t.milestoneEyebrow}
               </p>
-              <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl">
+              <h2 className="mt-5 text-3xl font-semibold leading-[1.05] tracking-[-0.05em] sm:text-4xl">
                 {t.milestoneTitle}
               </h2>
-              <p className="mt-5 text-sm leading-7 text-white/58">
+              <p className="mt-5 text-sm leading-7 text-gray-500">
                 {t.milestoneDescription}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/for-artists/elizabeth-kopecka"
-                  className="inline-flex h-9 items-center gap-5 rounded-full bg-white px-5 text-[11px] font-medium text-primary-700 transition hover:bg-primary-50"
+                  className="inline-flex h-9 items-center gap-5 rounded-full bg-primary-700 px-5 text-[11px] font-medium text-white transition hover:bg-primary-800"
                 >
                   {t.milestoneCta} <span aria-hidden="true">→</span>
                 </Link>
                 <Link
                   href="/cards#artist-edition"
-                  className="inline-flex h-9 items-center rounded-full border border-white/20 px-5 text-[11px] font-medium text-white transition hover:bg-white/10"
+                  className="inline-flex h-9 items-center rounded-full border border-gray-200 px-5 text-[11px] font-medium text-primary-700 transition hover:bg-primary-50"
                 >
                   {t.cardCta}
                 </Link>
@@ -179,6 +180,8 @@ export default function MusicHome({ locale }: { locale: Locale }) {
             </div>
           </div>
         </section>
+
+        <MusicPurchase locale={locale} />
 
         <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto grid max-w-[1120px] items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">

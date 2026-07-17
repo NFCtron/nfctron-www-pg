@@ -11,12 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
     path: "/music",
     title:
       locale === "cs"
-        ? "NFCtron Music | Hudba, vydání a distribuce"
-        : "NFCtron Music | Releases and distribution",
+        ? "NFCtron Music | Světový zvuk bez hranic"
+        : "NFCtron Music | World-class sound without borders",
     description:
       locale === "cs"
-        ? "Sledujte novou hudbu interpretů NFCtron, vznikající desku Elizabeth Kopecké a možnosti hudební distribuce v jednom propojeném ekosystému."
-        : "Follow new music from NFCtron artists, Elizabeth Kopecká's upcoming album and music distribution in one connected ecosystem.",
+        ? "Elizabeth Kopecká přiváží ze Švýcarska nový světový zvuk. Poslouchejte releasy NFCtron a kupte si hudbu přímo od interpreta v Hi-Res kvalitě."
+        : "Elizabeth Kopecká brings a new international sound from Switzerland. Explore NFCtron releases and buy Hi-Res music directly from the artist.",
     image: "/artists/elizabeth/hero.jpg",
     imageAlt: "NFCtron Music",
     ogLabel: "NFCtron Music",

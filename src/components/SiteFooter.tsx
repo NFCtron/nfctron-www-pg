@@ -74,6 +74,12 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
             >
               Blog
             </a>
+            <Link
+              href={localizedPath(locale, "/company-structure")}
+              className={footerLinkClass}
+            >
+              {t("Skupina NFCtron")}
+            </Link>
             <a href="mailto:info@nfctron.com" className={footerLinkClass}>
               {t("Kontakt")}
             </a>

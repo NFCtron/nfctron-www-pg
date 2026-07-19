@@ -6,6 +6,7 @@ import { localizedPath } from "@/i18n/routing";
 
 type SiteMode =
   | "home"
+  | "company"
   | "organizers"
   | "production"
   | "retailers"
@@ -110,7 +111,11 @@ function MobileModeSwitcher({
   t: (value: string) => string;
   locale: Locale;
 }) {
-  const activeMode = MODES.find((mode) => mode.id === active) ?? MODES[0];
+  const activeMode = MODES.find((mode) => mode.id === active) ?? {
+    id: "company" as const,
+    label: "NFCtron",
+    href: "/company-structure",
+  };
 
   return (
     <details className="relative lg:hidden">

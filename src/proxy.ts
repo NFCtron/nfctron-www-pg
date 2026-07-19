@@ -17,6 +17,7 @@ export const config = {
   matcher: [
     "/",
     "/cards",
+    "/company-structure",
     "/for-artists/:path*",
     "/for-organizers",
     "/for-retailers",

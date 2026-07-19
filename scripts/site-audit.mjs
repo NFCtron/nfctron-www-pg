@@ -10,6 +10,7 @@ const failures = [];
 const internalRoutes = new Set([
   "/",
   "/cards",
+  "/company-structure",
   "/for-artists",
   "/for-artists/elizabeth-kopecka",
   "/for-artists/like-it",
@@ -82,6 +83,7 @@ const heroPages = [
   "src/features/production/ProductionHome.tsx",
   "src/features/music/MusicHome.tsx",
   "src/features/cards/CardsHome.tsx",
+  "src/features/company/CompanyStructureHome.tsx",
 ];
 
 for (const relative of heroPages) {
@@ -108,6 +110,7 @@ const routes = [
   "/for-artists/like-it",
   "/music",
   "/cards",
+  "/company-structure",
   "/production",
 ];
 

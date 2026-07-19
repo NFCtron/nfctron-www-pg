@@ -22,6 +22,7 @@ const en: Record<string, string> = {
   Návštěvníci: "Visitors",
   Pořadatelé: "Organizers",
   Produkce: "Production",
+  "Skupina NFCtron": "NFCtron Group",
   Prodejci: "Vendors",
   Interpreti: "Artists",
   "Zobrazení webu": "Website view",

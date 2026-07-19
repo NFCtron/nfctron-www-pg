@@ -25,6 +25,7 @@ export const INDEXABLE_ROUTES: IndexableRoute[] = [
   { path: "/for-artists", changeFrequency: "monthly", priority: 0.6 },
   { path: "/music", changeFrequency: "weekly", priority: 0.7 },
   { path: "/cards", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/company-structure", changeFrequency: "monthly", priority: 0.6 },
   {
     path: "/for-artists/sebastian",
     changeFrequency: "weekly",

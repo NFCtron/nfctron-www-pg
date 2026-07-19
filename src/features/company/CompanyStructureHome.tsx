@@ -56,23 +56,23 @@ const copy = {
       },
     },
     direction: {
-      eyebrow: "Jak vzniká hodnota",
+      eyebrow: "Jak pracujeme",
       title: "Od prvního ticketu po poslední světlo na stage.",
       items: [
         {
           number: "01",
-          title: "Prodej a vztah s návštěvníkem",
-          description: "Ticketing, obsah a komunikace před začátkem akce.",
+          title: "Propojujeme",
+          description: "Technologie, platby, prodejce a data v jednom systému.",
         },
         {
           number: "02",
-          title: "Provoz a platby",
-          description: "Vstup, platby a technologie přímo na místě.",
+          title: "Realizujeme",
+          description: "Zkušenosti přímo z festivalů, koncertů a turné.",
         },
         {
           number: "03",
-          title: "Produkce a růst",
-          description: "Realizace, hudba, značky a nové projekty po celý rok.",
+          title: "Rozvíjíme",
+          description: "Interprety, hudbu, značky a nové projekty.",
         },
       ],
     },
@@ -88,12 +88,10 @@ const copy = {
       href: "https://www.nfctron.com/cs/blog/yashica-events-akvizice-rozsireni-podpory-akci",
     },
     close: {
-      eyebrow: "Pro váš projekt",
-      title: "Jedna skupina. Správné části pro váš projekt.",
-      description:
-        "Ať připravujete akci, hledáte technologického partnera nebo chcete rozvíjet nový projekt, spojíme vás s týmem, který dává smysl.",
-      organizerCta: "Najít správné řešení",
-      contactCta: "Kontaktovat NFCtron",
+      eyebrow: "Tohle je NFCtron.",
+      title: "Stavíte akci nebo projekt, který může růst s NFCtron?",
+      organizerCta: "Pro pořadatele",
+      contactCta: "Kontakt",
     },
   },
   en: {
@@ -137,23 +135,23 @@ const copy = {
       },
     },
     direction: {
-      eyebrow: "How value is created",
+      eyebrow: "How we work",
       title: "From the first ticket to the last light on stage.",
       items: [
         {
           number: "01",
-          title: "Sales and visitor relationships",
-          description: "Ticketing, content and communication before the event begins.",
+          title: "We connect",
+          description: "Technology, payments, vendors and data in one system.",
         },
         {
           number: "02",
-          title: "Operations and payments",
-          description: "Entry, payments and technology directly at the event.",
+          title: "We deliver",
+          description: "Experience built directly at festivals, concerts and tours.",
         },
         {
           number: "03",
-          title: "Production and growth",
-          description: "Delivery, music, brands and new projects throughout the year.",
+          title: "We grow",
+          description: "Artists, music, brands and new projects.",
         },
       ],
     },
@@ -169,12 +167,10 @@ const copy = {
       href: "https://www.nfctron.com/cs/blog/yashica-events-akvizice-rozsireni-podpory-akci",
     },
     close: {
-      eyebrow: "For your project",
-      title: "One group. The right capabilities for your project.",
-      description:
-        "Whether you are preparing an event, looking for a technology partner or developing a new project, we will connect you with the right team.",
-      organizerCta: "Find the right solution",
-      contactCta: "Contact NFCtron",
+      eyebrow: "This is NFCtron.",
+      title: "Are you building an event or project that can grow with NFCtron?",
+      organizerCta: "For organizers",
+      contactCta: "Contact",
     },
   },
 } satisfies Record<Locale, object>;
@@ -305,16 +301,13 @@ export default function CompanyStructureHome({ locale }: { locale: Locale }) {
               </article>
             </Link>
 
-            <div className="mx-auto mt-20 max-w-[820px] rounded-[28px] bg-[#f6f7fb] px-6 py-12 text-center sm:mt-24 sm:px-10 sm:py-16 lg:mt-28">
+            <div className="mx-auto mt-20 max-w-[760px] text-center sm:mt-24 lg:mt-28">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
                 {c.close.eyebrow}
               </p>
-              <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl lg:text-5xl">
+              <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl">
                 {c.close.title}
               </h2>
-              <p className="mx-auto mt-5 max-w-[650px] text-sm leading-7 text-gray-500 sm:text-base">
-                {c.close.description}
-              </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <ActionLink href={localizedPath(locale, "/for-organizers")} arrow>
                   {c.close.organizerCta}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 import type { ErrorPageContent } from "./copy";
 
 interface ErrorPageProps {
@@ -24,7 +25,7 @@ export default function ErrorPage({
     <main className="flex min-h-screen flex-col bg-white text-primary-900">
       <header className="border-b border-gray-200/80">
         <div className="container-fluid flex h-16 items-center justify-between">
-          <Link href="/" aria-label="NFCtron">
+          <Link href={localizedPath(locale, "/")} aria-label="NFCtron">
             <Image
               src="/nfctron-logo-dark.svg"
               alt="NFCtron"
@@ -60,7 +61,7 @@ export default function ErrorPage({
                 </button>
               ) : (
                 <Link
-                  href="/"
+                  href={localizedPath(locale, "/")}
                   className="inline-flex h-9 items-center gap-5 rounded-full bg-primary-700 px-5 text-[11px] font-medium text-white transition hover:bg-primary-900"
                 >
                   {content.primaryAction} <span aria-hidden="true">→</span>

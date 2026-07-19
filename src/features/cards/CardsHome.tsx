@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { AudienceHeroSection } from "@/components/audience/AudiencePage";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 import EditionCard from "./EditionCard";
 
 const content = {
@@ -335,7 +336,7 @@ export default function CardsHome({ locale }: { locale: Locale }) {
                 {copy.artistDescription}
               </p>
               <div className="mt-7">
-                <ActionLink href="/for-artists/elizabeth-kopecka" arrow>
+                <ActionLink href={localizedPath(locale, "/for-artists/elizabeth-kopecka")} arrow>
                   {copy.artistCta}
                 </ActionLink>
               </div>

@@ -25,13 +25,13 @@ export default async function VisitorHome({ locale }: { locale: Locale }) {
         <HeroSection t={t} />
         <EventTrendsSection groups={eventTrendGroups} locale={locale} />
         <CampaignFeature campaign={clickToPayCampaign} locale={locale} />
-        <CollectionsSections t={t} locale={locale} />
-        <EventsCatalogSection t={t} />
-        <BenefitsSection t={t} />
-        <AccountSection t={t} />
-        <BlogSection t={t} />
-        <SupportSection t={t} />
-        <OrganizerCta t={t} />
+        <div className="render-later"><CollectionsSections t={t} locale={locale} /></div>
+        <div className="render-later"><EventsCatalogSection t={t} /></div>
+        <div className="render-later"><BenefitsSection t={t} /></div>
+        <div className="render-later"><AccountSection t={t} locale={locale} /></div>
+        <div className="render-later"><BlogSection t={t} /></div>
+        <div className="render-later"><SupportSection t={t} /></div>
+        <div className="render-later"><OrganizerCta t={t} locale={locale} /></div>
       </main>
       <SiteFooter locale={locale} />
     </div>

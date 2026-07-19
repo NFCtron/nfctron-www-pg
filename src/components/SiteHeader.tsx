@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LanguageMenu from "./LanguageMenu";
 import { translate, type Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 
 type SiteMode =
   | "home"
@@ -70,9 +71,11 @@ function ChevronDownIcon() {
 function DesktopModeSwitcher({
   active,
   t,
+  locale,
 }: {
   active: SiteMode;
   t: (value: string) => string;
+  locale: Locale;
 }) {
   return (
     <div
@@ -82,7 +85,7 @@ function DesktopModeSwitcher({
       {MODES.map((mode) => (
         <Link
           key={mode.id}
-          href={mode.href}
+          href={localizedPath(locale, mode.href)}
           aria-current={active === mode.id ? "page" : undefined}
           className={`flex h-7 items-center whitespace-nowrap rounded-full px-3 text-[10px] font-medium leading-none transition ${active === mode.id ? "bg-white text-primary-700 shadow-sm" : "text-gray-500 hover:text-primary-700"}`}
         >
@@ -101,9 +104,11 @@ function DesktopModeSwitcher({
 function MobileModeSwitcher({
   active,
   t,
+  locale,
 }: {
   active: SiteMode;
   t: (value: string) => string;
+  locale: Locale;
 }) {
   const activeMode = MODES.find((mode) => mode.id === active) ?? MODES[0];
 
@@ -119,7 +124,7 @@ function MobileModeSwitcher({
         {MODES.map((mode) => (
           <Link
             key={mode.id}
-            href={mode.href}
+            href={localizedPath(locale, mode.href)}
             className={`block rounded-lg px-3 py-2 text-[10px] ${active === mode.id ? "bg-primary-50 font-medium text-primary-700" : "text-gray-600 hover:bg-gray-50"}`}
           >
             <span>{t(mode.label)}</span>
@@ -149,24 +154,23 @@ export default function SiteHeader({
         aria-label={t("Hlavní navigace")}
       >
         <div className="flex min-w-0 shrink-0 items-center lg:justify-self-start">
-          <Link href="/" aria-label="NFCtron domů" className="shrink-0">
+          <Link href={localizedPath(locale, "/")} aria-label="NFCtron domů" className="shrink-0">
             <Image
               src="/nfctron-logo-dark.svg"
               alt="NFCtron"
               width={86}
               height={16}
-              priority
             />
           </Link>
         </div>
 
-        <DesktopModeSwitcher active={active} t={t} />
+        <DesktopModeSwitcher active={active} t={t} locale={locale} />
 
         <div className="flex shrink-0 items-center gap-0.5 sm:gap-1 lg:justify-self-end">
-          <MobileModeSwitcher active={active} t={t} />
+          <MobileModeSwitcher active={active} t={t} locale={locale} />
           <LanguageMenu locale={locale} />
           <Link
-            href={onHome ? "#support" : "/#support"}
+            href={onHome ? "#support" : localizedPath(locale, "/#support")}
             aria-label={t("Přejít na podporu návštěvníků")}
             className="flex h-7 items-center gap-1.5 rounded-full px-2 text-[10px] font-medium leading-none tracking-[0.01em] text-gray-500 transition hover:bg-gray-50 hover:text-primary-700"
           >

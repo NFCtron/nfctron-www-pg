@@ -43,7 +43,7 @@ export function createPageMetadata({
   ogLabel = "NFCtron",
 }: PageMetadataOptions): Metadata {
   const canonicalPath = path === "/" ? "" : path;
-  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const canonicalUrl = `${SITE_URL}/${locale}${canonicalPath}`;
   const shareTitle = socialTitle ?? title;
   const ogImage = buildOgImageUrl({
     title,
@@ -57,7 +57,14 @@ export function createPageMetadata({
     metadataBase: new URL(SITE_URL),
     title,
     description,
-    alternates: { canonical: canonicalUrl },
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        cs: `${SITE_URL}/cs${canonicalPath}`,
+        en: `${SITE_URL}/en${canonicalPath}`,
+        "x-default": `${SITE_URL}/cs${canonicalPath}`,
+      },
+    },
     robots: SITE_INDEXING_ENABLED
       ? { index: true, follow: true }
       : { index: false, follow: false, nocache: true },

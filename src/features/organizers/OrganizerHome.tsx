@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import OrganizerEnquiryForm from "./OrganizerEnquiryForm";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 
 const content = {
   cs: {
@@ -409,7 +410,7 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
               </div>
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
                 <p className="text-sm text-white/60">{copy.eventsProof}</p>
-                <ActionLink href="/#events" variant="secondary" arrow>
+                <ActionLink href={localizedPath(locale, "/#events")} variant="secondary" arrow>
                   {copy.eventsProofCta}
                 </ActionLink>
               </div>

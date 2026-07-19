@@ -5,6 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import ActionLink from "@/components/ui/ActionLink";
 import { AudienceHeroSection } from "@/components/audience/AudiencePage";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 import MusicPurchase from "./MusicPurchase";
 
 const releases = [
@@ -179,13 +180,13 @@ export default function MusicHome({ locale }: { locale: Locale }) {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/for-artists/elizabeth-kopecka"
+                  href={localizedPath(locale, "/for-artists/elizabeth-kopecka")}
                   className="inline-flex h-9 items-center gap-5 rounded-full bg-primary-700 px-5 text-[11px] font-medium text-white transition hover:bg-primary-800"
                 >
                   {t.milestoneCta} <span aria-hidden="true">→</span>
                 </Link>
                 <Link
-                  href="/cards#artist-edition"
+                  href={localizedPath(locale, "/cards#artist-edition")}
                   className="inline-flex h-9 items-center rounded-full border border-gray-200 px-5 text-[11px] font-medium text-primary-700 transition hover:bg-primary-50"
                 >
                   {t.cardCta}
@@ -271,7 +272,13 @@ export default function MusicHome({ locale }: { locale: Locale }) {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div className="relative aspect-[1.45/1] overflow-hidden rounded-xl">
-                    <Image src={release.image} alt="" fill className="object-cover" />
+                    <Image
+                      src={release.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 639px) 100vw, 112px"
+                      className="object-cover"
+                    />
                   </div>
                   <div>
                     <p className="text-[9px] uppercase tracking-[0.13em] text-gray-400">

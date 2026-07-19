@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { translate, type Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 import CookieSettingsButton from "@/features/privacy/CookieSettingsButton";
 
 const footerLinkClass = "transition hover:text-white";
@@ -31,23 +32,23 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
           </div>
 
           <FooterColumn title={t("Pro koho")}>
-            <Link href="/" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/")} className={footerLinkClass}>
               {t("Návštěvníci")}
             </Link>
-            <Link href="/for-organizers" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/for-organizers")} className={footerLinkClass}>
               {t("Pořadatelé")}
             </Link>
-            <Link href="/for-retailers" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/for-retailers")} className={footerLinkClass}>
               {t("Prodejci")}
             </Link>
-            <Link href="/for-artists" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/for-artists")} className={footerLinkClass}>
               {t("Interpreti")}
             </Link>
-            <Link href="/music" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/music")} className={footerLinkClass}>
               {t("Hudba")}
             </Link>
             <Link
-              href="/cards"
+              href={localizedPath(locale, "/cards")}
               className="inline-flex items-center gap-2 transition hover:text-white"
             >
               {t("NFCtron Card")}
@@ -55,16 +56,16 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
                 Beta
               </span>
             </Link>
-            <Link href="/production" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/production")} className={footerLinkClass}>
               {t("Produkce")}
             </Link>
           </FooterColumn>
 
           <FooterColumn title="NFCtron">
-            <Link href="/#events" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/#events")} className={footerLinkClass}>
               {t("Akce")}
             </Link>
-            <Link href="/#how-it-works" className={footerLinkClass}>
+            <Link href={localizedPath(locale, "/#how-it-works")} className={footerLinkClass}>
               {t("Jak to funguje")}
             </Link>
             <a

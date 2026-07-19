@@ -4,6 +4,7 @@ import ActionLink from "@/components/ui/ActionLink";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 import EditionCard from "@/features/cards/EditionCard";
 import BookingEnquiryForm from "../home/BookingEnquiryForm";
 import ArtistSocialLinks from "./ArtistSocialLinks";
@@ -25,7 +26,7 @@ export default function ArtistProfile({
         <section className="px-5 pt-5 sm:px-8 sm:pt-7 lg:px-12 lg:pt-8">
           <div className="mx-auto max-w-[1280px]">
             <Link
-              href="/for-artists"
+              href={localizedPath(locale, "/for-artists")}
               className="mb-3 inline-flex items-center gap-2 text-[11px] font-medium text-gray-500 transition hover:text-primary-700 sm:mb-4"
             >
               ← {locale === "cs" ? "Zpět na interprety" : "Back to artists"}
@@ -104,7 +105,7 @@ export default function ArtistProfile({
                     : "Connect your NFCtron Card with Elizabeth. When she announces her own show, cardholders may receive first access to tickets, music and more experiences."}
                 </p>
                 <div className="mt-7">
-                  <ActionLink href="/cards#artist-edition" arrow>
+                  <ActionLink href={localizedPath(locale, "/cards#artist-edition")} arrow>
                     {locale === "cs" ? "Objevit kartu" : "Discover the card"}
                   </ActionLink>
                 </div>

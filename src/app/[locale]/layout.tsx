@@ -1,28 +1,32 @@
 import type { Metadata } from "next";
-import { DM_Sans, Poppins } from "next/font/google";
-import { getLocale } from "@/i18n/server";
-import { seo } from "@/i18n/config";
+import "@fontsource-variable/dm-sans";
+import "@fontsource/poppins/latin-400.css";
+import "@fontsource/poppins/latin-ext-400.css";
+import "@fontsource/poppins/latin-500.css";
+import "@fontsource/poppins/latin-ext-500.css";
+import "@fontsource/poppins/latin-600.css";
+import "@fontsource/poppins/latin-ext-600.css";
+import { locales, seo } from "@/i18n/config";
+import { getRouteLocale, type LocaleParams } from "@/i18n/routing";
 import { SITE_URL } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
 import CookieConsent from "@/features/privacy/CookieConsent";
-import "./globals.css";
+import "../globals.css";
 
-const poppins = Poppins({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
-  variable: "--font-poppins",
-  display: "swap",
-});
+export const dynamicParams = false;
 
-const dmSans = DM_Sans({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export async function generateMetadata({
+  params,
+}: {
+  params: LocaleParams;
+}): Promise<Metadata> {
+  const locale = await getRouteLocale(params);
   const content = seo[locale];
+
   return {
     ...createPageMetadata({
       title: content.title,
@@ -46,14 +50,17 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: LocaleParams;
 }) {
-  const locale = await getLocale();
+  const locale = await getRouteLocale(params);
+
   return (
-    <html lang={locale} className={`${poppins.variable} ${dmSans.variable}`}>
+    <html lang={locale}>
       <body className="font-sans antialiased">
         {children}
         <CookieConsent locale={locale} />

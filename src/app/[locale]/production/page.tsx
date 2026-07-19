@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import ProductionHome from "@/features/production/ProductionHome";
-import { getLocale } from "@/i18n/server";
+import { getRouteLocale, type LocaleParams } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale();
+export async function generateMetadata({ params }: { params: LocaleParams }): Promise<Metadata> {
+  const locale = await getRouteLocale(params);
   return createPageMetadata({
     locale,
     path: "/production",
@@ -15,7 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default async function ProductionPage() {
-  const locale = await getLocale();
-  return <ProductionHome locale={locale} />;
+export default async function ProductionPage({ params }: { params: LocaleParams }) {
+  return <ProductionHome locale={await getRouteLocale(params)} />;
 }

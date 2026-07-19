@@ -63,8 +63,9 @@ for (const [file, contents] of source) {
 
   for (const match of contents.matchAll(/href="(\/[^"\s]*)"/g)) {
     const route = match[1].split(/[?#]/, 1)[0] || "/";
+    const publicRoute = route.replace(/^\/(?:cs|en)(?=\/|$)/, "") || "/";
     report(
-      internalRoutes.has(route),
+      internalRoutes.has(publicRoute),
       `${relative}: internal CTA points to an unknown route ${match[1]}`,
     );
   }
@@ -118,12 +119,8 @@ if (liveUrl) {
   ];
 
   for (const route of routes) {
-    const response = await fetch(new URL(route, liveUrl), {
-      headers: {
-        cookie: "nfctron-locale=en",
-        "accept-language": "en",
-      },
-    });
+    const localizedRoute = route === "/" ? "/en" : `/en${route}`;
+    const response = await fetch(new URL(localizedRoute, liveUrl));
     report(response.ok, `${route}: returned HTTP ${response.status}`);
     const html = await response.text();
     const visibleText = html

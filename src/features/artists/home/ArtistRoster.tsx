@@ -3,6 +3,7 @@ import Link from "next/link";
 import { artistProfiles } from "../profile/profiles";
 import { localize, type ArtistProfileConfig } from "../profile/types";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 import type { getArtistHomeContent } from "./content";
 
 type HomeContent = ReturnType<typeof getArtistHomeContent>;
@@ -39,7 +40,7 @@ export default function ArtistRoster({
             return (
               <Link
                 key={artist.slug}
-                href={`/for-artists/${artist.slug}`}
+                href={localizedPath(locale, `/for-artists/${artist.slug}`)}
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:border-primary-200 hover:shadow-xl hover:shadow-primary-900/10"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-primary-900">

@@ -1,10 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { localeLabels, locales, type Locale } from '@/i18n/config';
 
 export default function LanguageMenu({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const languageHref = (nextLocale: Locale) => {
+    const suffix = pathname.replace(/^\/(cs|en)(?=\/|$)/, "");
+    return `/${nextLocale}${suffix}`;
+  };
 
   return (
     <div className="relative">
@@ -27,7 +34,11 @@ export default function LanguageMenu({ locale }: { locale: Locale }) {
           {locales.map(item => (
             <a
               key={item}
-              href={`/api/locale?lang=${item}`}
+              href={languageHref(item)}
+              onClick={() => {
+                document.cookie = `nfctron-locale=${item}; path=/; max-age=31536000; samesite=lax`;
+                setOpen(false);
+              }}
               className={`block rounded-lg px-3 py-2 text-xs transition ${item === locale ? 'bg-primary-50 font-medium text-primary-700' : 'text-gray-600 hover:bg-gray-50'}`}
             >
               {localeLabels[item]}

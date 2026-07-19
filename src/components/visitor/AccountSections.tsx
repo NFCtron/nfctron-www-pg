@@ -2,6 +2,8 @@ import Link from "next/link";
 import EditionCard from "@/features/cards/EditionCard";
 import { ArrowIcon } from "./icons";
 import type { Translator } from "./types";
+import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routing";
 
 const accountFeatures = [
   "Bezpečný nákup vstupenek",
@@ -9,7 +11,7 @@ const accountFeatures = [
   "Výhody od akcí a interpretů",
 ];
 
-export function AccountSection({ t }: { t: Translator }) {
+export function AccountSection({ t, locale }: { t: Translator; locale: Locale }) {
   return (
     <section className="section bg-[#eef4ff]" id="all-events">
       <div className="container-fluid">
@@ -38,7 +40,7 @@ export function AccountSection({ t }: { t: Translator }) {
                 </li>
               ))}
             </ul>
-            <Link href="/cards" className="btn-primary mt-7">
+            <Link href={localizedPath(locale, "/cards")} className="btn-primary mt-7">
               {t("Objevit NFCtron Card")} <ArrowIcon />
             </Link>
           </div>
@@ -70,7 +72,7 @@ export function AccountSection({ t }: { t: Translator }) {
   );
 }
 
-export function OrganizerCta({ t }: { t: Translator }) {
+export function OrganizerCta({ t, locale }: { t: Translator; locale: Locale }) {
   return (
     <section className="bg-primary-700 py-10 text-white sm:py-12">
       <div className="container-fluid flex flex-col justify-between gap-6 md:flex-row md:items-center">
@@ -83,7 +85,7 @@ export function OrganizerCta({ t }: { t: Translator }) {
           </p>
         </div>
         <Link
-          href="/for-organizers"
+          href={localizedPath(locale, "/for-organizers")}
           className="btn bg-white text-primary-900 hover:bg-primary-100"
         >
           {t("Řešení pro pořadatele")} <ArrowIcon />

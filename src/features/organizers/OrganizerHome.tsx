@@ -354,7 +354,7 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+        <section id="journey" className="scroll-mt-20 px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-[1120px]">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
@@ -418,7 +418,7 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+        <section id="payments" className="scroll-mt-20 px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-[1120px]">
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">
               {copy.journeyEyebrow}
@@ -479,7 +479,7 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <section className="bg-[#f8f8fb] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+        <section id="operations" className="scroll-mt-20 bg-[#f8f8fb] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto grid max-w-[1120px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20">
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-700">

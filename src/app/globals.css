@@ -18,12 +18,31 @@
   }
 }
 
+@keyframes mega-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .recommendation-reveal {
   animation: recommendation-in 320ms ease-out;
 }
 
+.mega-menu-reveal {
+  animation: mega-menu-in 180ms ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .recommendation-reveal {
+    animation: none;
+  }
+
+  .mega-menu-reveal {
     animation: none;
   }
 }

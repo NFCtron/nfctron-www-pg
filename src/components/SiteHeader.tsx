@@ -209,23 +209,6 @@ function SupportIcon() {
   );
 }
 
-function ChevronDownIcon({ open = false }: { open?: boolean }) {
-  return (
-    <svg
-      className={`h-2.5 w-2.5 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m3.25 4.75 2.75 2.5 2.75-2.5" />
-    </svg>
-  );
-}
-
 function ArrowIcon() {
   return (
     <svg
@@ -243,7 +226,20 @@ function ArrowIcon() {
   );
 }
 
-function DesktopModeSwitcher({
+function MenuIcon({ open = false }: { open?: boolean }) {
+  return (
+    <span className="relative block h-3.5 w-4" aria-hidden="true">
+      <span
+        className={`absolute left-0 top-[3px] h-px w-4 bg-current transition duration-200 ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
+      />
+      <span
+        className={`absolute bottom-[3px] left-0 h-px w-4 bg-current transition duration-200 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+      />
+    </span>
+  );
+}
+
+function DesktopNavigation({
   active,
   t,
   locale,
@@ -258,8 +254,8 @@ function DesktopModeSwitcher({
 }) {
   return (
     <div
-      className="hidden h-8 items-center rounded-full bg-gray-100 p-0.5 lg:flex"
-      aria-label={t("Zobrazení webu")}
+      className="hidden h-16 items-center gap-4 lg:flex xl:gap-6"
+      aria-label={locale === "cs" ? "Hlavní sekce webu" : "Main website sections"}
     >
       {MODES.map((mode) => (
         <Link
@@ -270,7 +266,7 @@ function DesktopModeSwitcher({
           aria-haspopup="true"
           onMouseEnter={() => onMenuOpen(mode.id)}
           onFocus={() => onMenuOpen(mode.id)}
-          className={`flex h-7 items-center whitespace-nowrap rounded-full px-3 text-[10px] font-medium leading-none transition ${openMenu === mode.id ? "bg-[#e9e9f6] text-primary-700 shadow-[inset_0_0_0_1px_rgba(31,27,97,0.05)]" : active === mode.id ? "bg-white text-primary-700 shadow-sm" : "text-gray-500 hover:text-primary-700"}`}
+          className={`relative flex h-full items-center whitespace-nowrap text-[10px] font-medium leading-none transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:bg-primary-700 after:transition-transform after:duration-200 ${openMenu === mode.id || active === mode.id ? "text-primary-700 after:scale-x-100" : "text-gray-500 after:scale-x-0 hover:text-primary-700"}`}
         >
           <span>{t(mode.label)}</span>
           {mode.beta ? (
@@ -344,22 +340,15 @@ function MegaMenuContent({
   );
 }
 
-function MobileModeSwitcher({
-  active,
+function MobileMenuButton({
   t,
   open,
   onToggle,
 }: {
-  active: SiteMode;
   t: (value: string) => string;
   open: boolean;
   onToggle: () => void;
 }) {
-  const activeMode = MODES.find((mode) => mode.id === active) ?? {
-    id: "company" as const,
-    label: "NFCtron",
-    href: "/company-structure",
-  };
   return (
     <div className="lg:hidden">
       <button
@@ -367,12 +356,9 @@ function MobileModeSwitcher({
         aria-label={t("Otevřít menu")}
         aria-expanded={open}
         onClick={onToggle}
-        className="flex h-7 items-center gap-1.5 whitespace-nowrap rounded-full bg-gray-100 px-2.5 text-[8px] font-medium leading-none text-gray-600"
+        className="flex h-8 w-8 items-center justify-center rounded-full text-primary-900 transition hover:bg-gray-100"
       >
-        <span>{t(activeMode.label)}</span>
-        <span className="flex items-center justify-center text-gray-400">
-          <ChevronDownIcon open={open} />
-        </span>
+        <MenuIcon open={open} />
       </button>
     </div>
   );
@@ -538,7 +524,7 @@ export default function SiteHeader({
             </Link>
           </div>
 
-          <DesktopModeSwitcher
+          <DesktopNavigation
             active={active}
             t={t}
             locale={locale}
@@ -547,8 +533,7 @@ export default function SiteHeader({
           />
 
           <div className="flex shrink-0 items-center gap-0.5 sm:gap-1 lg:justify-self-end">
-            <MobileModeSwitcher
-              active={active}
+            <MobileMenuButton
               t={t}
               open={mobileOpen}
               onToggle={() => {

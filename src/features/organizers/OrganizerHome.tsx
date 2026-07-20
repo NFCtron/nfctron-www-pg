@@ -19,17 +19,18 @@ const content = {
     pillarsTitle: "NFCtron je raketa nabitá funkcemi.",
     pillarsDescription:
       "Ticketing, platby a data nejsou samostatné světy. NFCtron je spojuje do jednoho systému, který posouvá celou akci dopředu.",
+    ticketingCta: "Prozkoumat NFCtron Tickets",
     pillars: [
       [
         "01",
         "Ticketing a vstup",
-        "Vlastní prodejní stránka, objednávky, vstupenky a rychlá kontrola návštěvníků.",
+        "Vlastní prodejní stránka, objednávky, zabezpečené vstupenky a rychlá kontrola návštěvníků.",
         [
-          "Prodejní microsite",
-          "Typy vstupenek a vlny",
-          "Slevy a promo kódy",
-          "Kontrola vstupu",
-          "Objednávky a refundace",
+          "White-label prodejní stránka",
+          "Typy vstupenek, místa a kapacity",
+          "Zabezpečené vstupenky a Ticket Market",
+          "Objednávky, refundace a konverze",
+          "Účet návštěvníka a Wallet",
         ],
       ],
       [
@@ -155,17 +156,18 @@ const content = {
     pillarsTitle: "NFCtron is a rocket packed with features.",
     pillarsDescription:
       "Ticketing, payments and data are not separate worlds. NFCtron connects them into one system that moves the entire event forward.",
+    ticketingCta: "Explore NFCtron Tickets",
     pillars: [
       [
         "01",
         "Ticketing and entry",
-        "A dedicated sales page, orders, tickets and fast visitor access control.",
+        "A branded sales page, orders, secured tickets and fast visitor access control.",
         [
-          "Sales microsite",
-          "Ticket types and waves",
-          "Discounts and promo codes",
-          "Access control",
-          "Orders and refunds",
+          "White-label sales page",
+          "Ticket types, seats and capacities",
+          "Secured tickets and Ticket Market",
+          "Orders, refunds and conversion",
+          "Visitor account and Wallet",
         ],
       ],
       [
@@ -323,7 +325,7 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
               </p>
             </div>
             <div className="mt-9 grid gap-4 lg:grid-cols-3">
-              {copy.pillars.map(([number, title, description, features]) => (
+              {copy.pillars.map(([number, title, description, features], index) => (
                 <article
                   key={number}
                   className="flex flex-col rounded-2xl border border-gray-200 bg-white p-7 sm:p-8"
@@ -348,6 +350,17 @@ export default function OrganizerHome({ locale }: { locale: Locale }) {
                       </li>
                     ))}
                   </ul>
+                  {index === 0 ? (
+                    <div className="mt-7 pt-1">
+                      <ActionLink
+                        href={localizedPath(locale, "/for-organizers/ticketing")}
+                        variant="secondary"
+                        arrow
+                      >
+                        {copy.ticketingCta}
+                      </ActionLink>
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>

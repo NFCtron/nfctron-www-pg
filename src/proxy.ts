@@ -19,7 +19,7 @@ export const config = {
     "/cards",
     "/company-structure",
     "/for-artists/:path*",
-    "/for-organizers",
+    "/for-organizers/:path*",
     "/for-retailers",
     "/music",
     "/production",
